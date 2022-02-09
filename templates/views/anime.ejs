@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= anime.ANIME_TITLE %></title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body>
+    <div class="main-content-anime">
+        <%- include('../partials/header.ejs') %>
+        <!-- {{!-- get the jpg image and anime title from sent data  --}} -->
+        <img src= <%= "/img/anime_pic/"+anime.ANIME_ID + ".jpg" %> alt= <%= anime.ANIME_TITLE + "image" %> >
+        <h3 class = "anime-title" > <%= anime.ANIME_TITLE %></h3>
+        <p>Synopsis : <%= anime.SYNOPSIS %></p>
+        <p>Genre : 
+            <% for (let genre of genres){ %>
+                <!-- this might change depending on the search by genre -->
+                <a class="genre-name" href= <%= "/genre/" + genre.GENRE_NAME %> > <%=genre.GENRE_NAME %> </a> 
+            <% } %>
+        </p>
+        <p>Released : <%= anime.RELEASE_DATE %></p>
+        <p>Studio : <a href= <%= "/studio/" + anime.STUDIO_NAME%>> <%= anime.STUDIO_NAME %> </a> </p>
+        <p>Writer : <a href= <%= "/personnel/" + writer.PERSONNEL_ID%> > <%= writer.FIRST_NAME %> <%= writer.LAST_NAME %> </a> </p> 
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

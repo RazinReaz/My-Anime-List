@@ -1,0 +1,27 @@
+BACKEND
+/writer/ personnel.ejs {if statements needed}
+/genre/ genre.ejs {need to think about it}
+/studio/
+
+
+FRONTEND
+css files
+img jogar kora
+buttons
+
+
+ORGANIZATION
+routers
+Db codes like get all anime
+
+
+DATABASE
+unique id generation
+pictureid insertion
+
+
+DON"T FORGET
+module.exports and require
+async await
+proper links to the folders in app.js
+update pageInfo object for all res.sends

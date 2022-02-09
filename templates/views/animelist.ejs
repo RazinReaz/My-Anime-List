@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Anime List</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body>
+    <div class="main-content">
+        <%- include('../partials/header.ejs') %>
+        <p>This is the animelist page</p>
+        <ul>
+            <li>anchor anime title 1 href /anime/{id}</li>
+            <% for (let anime of animes){ %>
+                <li> <a href = <%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a></li>
+            <% } %>
+        </ul>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>
