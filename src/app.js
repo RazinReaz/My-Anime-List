@@ -83,6 +83,17 @@ app.get('/anime/:anime_id', async (req, res) => {
     res.render('anime', data)
 })
 
+
+app.get('*', (req, res) =>{
+
+    const data = {
+        pageTitle : '404',
+        creator : '',
+        message : 'Requested page does not exist'
+    }
+    res.render('error', data)
+})
+
 //TODO ERROR REQUESTS
 
 

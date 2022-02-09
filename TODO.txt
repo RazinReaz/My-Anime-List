@@ -9,7 +9,6 @@ css files
 img jogar kora
 buttons
 
-
 ORGANIZATION
 routers
 Db codes like get all anime
