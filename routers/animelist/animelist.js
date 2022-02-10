@@ -5,7 +5,7 @@ const router = express.Router({ mergeParams: true })
 
 router.get('/', async (req, res) => {
 
-    const animeList = await DB_anime.getAllAnimes()
+    const animeList = await DB_anime.getAllAnimeTitleAndID()
 
     const data = {
         pageTitle: 'List of Animes',

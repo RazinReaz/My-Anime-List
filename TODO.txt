@@ -1,11 +1,17 @@
 USER AUTHENTICATION
 SEARCH BY TAG
 
+
+
+
+
+
 BACKEND
-user authentication
+listener event js function
 /writer/ personnel.ejs {if statements needed}
 /genre/ genre.ejs {need to think about it}
 /studio/
+REVIEW PAGES will contain only not null descriptions
 
 
 FRONTEND
@@ -20,7 +26,10 @@ process.env.ROOT
 
 
 DATABASE
-unique id generation
+unique id generation 
+    FOR REVIEW
+    FOR ANIME
+    FOR PERSONNEL
 pictureid insertion
 
 
@@ -41,3 +50,19 @@ Popular anime's of the season
 Newly released anime
 Search by Genre, studio etc.
 
+
+
+triggers
+
+    INSERT TRIGGERS FOR THE
+        [HANDLE IN BACKEND] REVIEWED RELATION : IF REVIEW ENTERED THEN REVIEWD WILL BE FILLED UP
+        PERSONNEL TO WRITER(GENRE SPECIALIZATION) AND VOICE ACTORS(ROLE SPECIALIZATION)
+        IF STARRED ON ANIME UPDATE THE RATING OF THE ANIME [ COULD BE DONE IN BACKEND AS WELL]
+    DONE if added to list, insert into preference/update counter +1
+    DONE if removed from list, delete from preference/update counter -1
+
+    this could be for star/ review as well.
+
+    if starred on an anime, update anime rating field avg value of all ratings OF THAT ANIME.. star/5.. 
+    avg doesnt count null values in oracle avg(com_pct) = sum/count(com_pct)..
+    so we can fetch the rating of the episodes as well.

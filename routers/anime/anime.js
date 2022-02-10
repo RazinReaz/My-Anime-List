@@ -1,6 +1,5 @@
 const express = require('express')
-//! require sql functions
-const DB_anime = require('../../DB_codes/DB_anime') //!env.ROOT?
+const DB_anime = require('../../DB_codes/DB_anime') 
 const router = express.Router({ mergeParams: true })
 
 

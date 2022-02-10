@@ -14,7 +14,8 @@ router.get('/test', (req, res) => {
 //!require all sub routers
 const animeRouter = require('./anime/anime')
 const animeListRouter = require('./animelist/animelist')
-
+const loginRouter = require('./authentication/login')
+const registerRouter = require('./authentication/register')
 
 
 
@@ -22,8 +23,7 @@ const animeListRouter = require('./animelist/animelist')
 router.get('/', (req, res) => {
     res.render('index', {
         pageTitle: 'MyAnimeList',
-        creator: 'MasterChief',
-        amar_nam: 'mog er mulluk'
+        creator: 'MasterChief'
     })
 })
 
@@ -33,5 +33,7 @@ router.get('/', (req, res) => {
 //!set up sub routers
 router.use('/anime', animeRouter)
 router.use('/animelist', animeListRouter)
+router.use('/users/login', loginRouter)
+router.use('/users/register', registerRouter)
 
 module.exports = router

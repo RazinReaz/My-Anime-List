@@ -26,7 +26,7 @@ async function getWriterByID(PERSONNEL_ID) {
     return (await database.execute(sql, [PERSONNEL_ID], database.options)).rows[0]
 }
 
-async function getAllAnimes () {
+async function getAllAnimeTitleAndID () {
     let sql = `
         select ANIME_TITLE, ANIME_ID
         from anime
@@ -38,5 +38,5 @@ module.exports = {
     getAnimeByID,
     getGenresByID,
     getWriterByID,
-    getAllAnimes
+    getAllAnimeTitleAndID
 }
