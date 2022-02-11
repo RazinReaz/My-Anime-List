@@ -13,8 +13,22 @@
         <%- include('../partials/header.ejs') %>
         <!-- {{!-- get the jpg image and anime title from sent data  --}} -->
         <img src= <%= "/img/anime_pic/"+anime.ANIME_ID + ".jpg" %> alt= <%= anime.ANIME_TITLE + "image" %> >
-        <button type="button" style="color: lightslategrey;">Add to list++</button>
+        <p>
+            <button type="button" style="color: lightslategrey;">Add to list++</button>
+            <span style="float: right;color:royalblue;">Members ekhane</span>
+            <br>
+        </p>
         <h3 class = "anime-title" > <%= anime.ANIME_TITLE %></h3>
+        <div id="left">
+            Rank
+        </div>
+        <div id="center">
+            Average Rating
+        </div>
+        <div id="right">
+            Stars
+        </div>
+        <p><br></p>
         <p>Synopsis : <%= anime.SYNOPSIS %></p>
         <p>Genre : 
             <% for (let genre of genres){ %>

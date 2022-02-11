@@ -64,6 +64,24 @@ form.example::after {
   clear: both;
   display: table;
 }
+#left {
+  color: darkgreen;
+  float: left;
+  text-align: left;
+  padding-right: 10px;
+}
+
+#center {
+  color:crimson;
+  text-align: center;
+}
+
+#right {
+  color: teal;
+  float: right;
+  text-align:right;
+  padding-left: 10px;
+}
 
 header a {
     color: #888888;
