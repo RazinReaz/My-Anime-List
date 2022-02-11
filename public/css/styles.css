@@ -27,27 +27,43 @@ h1 {
     margin-bottom: 16px;
 }
 
-header.wrapper{
-    max-width: 50px;
-    margin: 50px auto;
-  }
-  .wrapper .search-input{
-    background:rgba(0, 0, 0, 0.089);
-    width: 30%;
-    /*border-radius: 5px;*/
-    position:relative;
-    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.897);
-  }
-  .search-input input{
-    height: 55px;
-    width: 100%;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    padding: 0 60px 0 20px;
-    font-size: 18px;
-    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-  }
+* {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 50%;
+  background:cornsilk;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background:lightcoral;
+  color:crimson;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background:brown;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
 header a {
     color: #888888;
