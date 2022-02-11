@@ -5,13 +5,15 @@
     <title>My Anime ist</title>
     <link rel="icon" href="/img/icons/mal-logo-head.png">
     <link rel="stylesheet" href="/css/styles.css">
-    
+
 </head>
 
 <body>
     <div class="main-content">
         <%- include('../partials/header.ejs') %>
-        <p>Welcome to the site</p>
+            <p>
+                <%= message %>
+            </p>
     </div>
     <%- include('../partials/footer.ejs') %>
 </body>

@@ -1,5 +1,7 @@
 const path = require('path')
 const express = require('express')
+const cookieParser = require("cookie-parser");
+const sessions = require('express-session');
 
 const database = require('../DB_codes/database')
 const appRouter = require('../routers/appRouter')
@@ -14,24 +16,21 @@ app.set('view engine', 'ejs')
 app.set('views', viewsPath) //looks into the 'templates/views' folder
 
 
+const oneDay = 1000 * 60 * 60 * 24;
+app.use(sessions({
+    secret: "thisismysecrctekey789",
+    saveUninitialized: true,
+    cookie: { maxAge: oneDay },
+    resave: false
+}));
+
+
 app.use(express.json())
-//app.use(express.urlencoded({extended : false}))
+app.use(express.urlencoded({ extended: false }))
 app.use(express.static(publicPath))
+app.use(cookieParser());
 
 app.use(appRouter)
-
-
-app.get('*', (req, res) =>{
-
-    const data = {
-        pageTitle : '404',
-        creator : '',
-        message : 'Requested page does not exist'
-    }
-    res.status(400).render('error', data)
-})
-
-//TODO ERROR REQUESTS
 
 
 const PORT = process.env.PORT || 3000
@@ -40,7 +39,7 @@ app.listen(PORT, async () => {
     try {
         await database.startup()
         console.log(`Server started on ${PORT}`)
-    }catch(error){
+    } catch (error) {
         console.log('Error starting the database')
         process.exit(1)
     }

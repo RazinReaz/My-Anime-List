@@ -1,18 +1,31 @@
 const express = require('express')
-const DB_anime = require('../../DB_codes/DB_auth')
+const bcrypt = require('bcrypt')
+const DB_auth = require('../../DB_codes/DB_auth')
 const router = express.Router({ mergeParams: true })
 
 
 router.get('/', async (req, res) => {
-    //database query
-    // const result = await ;
-    //error checking
-    // const data ;
+    res.render('login', { message: 'Please provide info' })
+})
 
 
 
-    res.send('login')
-    //res.render('', data)
+router.post('/', async (req, res) => {
+    const { username, password } = req.body;
+    const user = await DB_auth.getUserByUsername(username);
+    const userExists = user.length == 0 ? false : true;
+    if (!userExists) {
+        return res.render('login', { message: 'Error logging in' })
+    }
+
+    const passwordMatch = await bcrypt.compare(password, user[0].PASSWORD)
+    if (!passwordMatch) {
+        return res.render('login', { message: 'Error logging in' })
+    }
+    var session = req.session;
+    session.userid = req.body.username;
+    console.log(req.session);
+    res.redirect('/');
 })
 
 module.exports = router

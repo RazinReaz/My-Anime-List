@@ -1,5 +1,6 @@
 USER AUTHENTICATION
 SEARCH BY TAG
+TRIGGER FINALIZE
 
 
 
@@ -56,12 +57,13 @@ triggers
 
     INSERT TRIGGERS FOR THE
         [HANDLE IN BACKEND] REVIEWED RELATION : IF REVIEW ENTERED THEN REVIEWD WILL BE FILLED UP
+        IF VOTED ON A REVIEW, THE VOTES ATTRIBUTE OF REVIW WILL INCREASE
         PERSONNEL TO WRITER(GENRE SPECIALIZATION) AND VOICE ACTORS(ROLE SPECIALIZATION)
         IF STARRED ON ANIME UPDATE THE RATING OF THE ANIME [ COULD BE DONE IN BACKEND AS WELL]
-    DONE if added to list, insert into preference/update counter +1
-    DONE if removed from list, delete from preference/update counter -1
+    if added to list, insert into preference/update counter +0.1
+    if removed from list, delete from preference/update counter -0.1
 
-    this could be for star/ review as well.
+    this could be for star/ review as well. counter increment = rating / 2 -1.5
 
     if starred on an anime, update anime rating field avg value of all ratings OF THAT ANIME.. star/5.. 
     avg doesnt count null values in oracle avg(com_pct) = sum/count(com_pct)..

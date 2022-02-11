@@ -14,7 +14,7 @@ footer {
     color : #888888;
     border-top: 1px solid #eeeeee;
     margin-top: 16px;
-    padding: 16px 0;
+    padding: 8px 0;
 }
 
 header {
@@ -31,4 +31,17 @@ header a {
     color: #888888;
     margin-right: 16px;
     text-decoration: none;  /* removes the underline in links */
+}
+
+input {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+button {
+    cursor : pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: white;
+    padding: 6px;
 }

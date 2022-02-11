@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
     const data = {
         pageTitle: 'List of Animes',
-        creator: 'Razin', //! more stuff here
+        username: req.session.userid,
 
         animes: animeList
     }

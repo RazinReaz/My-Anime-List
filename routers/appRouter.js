@@ -16,6 +16,7 @@ const animeRouter = require('./anime/anime')
 const animeListRouter = require('./animelist/animelist')
 const loginRouter = require('./authentication/login')
 const registerRouter = require('./authentication/register')
+const logoutRouter = require('./authentication/logout')
 
 
 
@@ -23,7 +24,9 @@ const registerRouter = require('./authentication/register')
 router.get('/', (req, res) => {
     res.render('index', {
         pageTitle: 'MyAnimeList',
-        creator: 'MasterChief'
+        username: req.session.userid,
+        message: 'This is the Home Page'
+
     })
 })
 
@@ -33,7 +36,20 @@ router.get('/', (req, res) => {
 //!set up sub routers
 router.use('/anime', animeRouter)
 router.use('/animelist', animeListRouter)
-router.use('/users/login', loginRouter)
-router.use('/users/register', registerRouter)
+router.use('/login', loginRouter)
+router.use('/register', registerRouter)
+router.use('/logout', logoutRouter)
+
+
+
+router.get('*', (req, res) => {
+
+    const data = {
+        pageTitle: '404',
+        username: '',
+        message: 'Requested page does not exist'
+    }
+    res.status(400).render('error', data)
+})
 
 module.exports = router
