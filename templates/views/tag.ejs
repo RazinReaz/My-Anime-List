@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search by tags</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="search-by-tags">
+        <%- include('../partials/header.ejs') %>
+        <form class="Tags" action="action_page.php">
+            <input type="checkbox" id="tag1" value="1">
+            <label for="tag1">Good</label><br>
+            <input type="checkbox" id="tag2" value="2">
+            <label for="tag2">Best</label><br>
+            <input type="checkbox" id="tag3" value="3">
+            <label for="tag3">Bad</label><br>
+            <input type="checkbox" id="tag4" value="4">
+            <label for="tag4">Much Better</label><br>
+            <input type="checkbox" id="tag5" value="5">
+            <label for="tag5">Crazy MC</label><br>
+            <input type="checkbox" id="tag6" value="6">
+            <label for="tag6">Dark comedy</label><br>
+            <input type="checkbox" id="tag7" value="7">
+            <label for="tag7">Wholesome</label><br>
+            <input type="checkbox" id="tag8" value="8">
+            <label for="tag8">HeartWarming</label><br>
+            <input type="checkbox" id="tag9" value="9">
+            <label for="tag9">Messy plot</label><br>
+            <input type="checkbox" id="tag10" value="10">
+            <label for="tag10">Extremely Sad</label><br>
+            <input type="checkbox" id="tag11" value="11">
+            <label for="tag11">Matha noshto</label><br>
+            <input type="checkbox" id="tag12" value="12">
+            <label for="tag12">Love in the air</label><br>
+            <input type="checkbox" id="AND">
+            <label for="and">And</label><br>
+            <input type="checkbox" id="OR">
+            <label for="or">Or</label><br>
+            <input type="checkbox" id="select-all">
+            <label for="all">Select All</label><br>
+        </form>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>
