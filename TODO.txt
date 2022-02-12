@@ -1,19 +1,16 @@
-USER AUTHENTICATION
-SEARCH BY TAG
+USER AUTHENTICATION TEST    
+SEARCH BY TAG TEST
 TRIGGER FINALIZE
 
-
-
-
-
+[DONE LIST]
+LOGIN, LOGOUT, REGISTER
+SEARCH BY TAGS
 
 BACKEND
 listener event js function
-/writer/ personnel.ejs {if statements needed}
-/genre/ genre.ejs {need to think about it}
-/studio/
-REVIEW PAGES will contain only not null descriptions
-
+/writer/
+/voice actor/
+/studio/ will have the animes produced by that studio
 
 FRONTEND
 css files
@@ -23,13 +20,11 @@ buttons
 ORGANIZATION
 all routers
 all Db codes like get all anime
-process.env.ROOT
 
 
 DATABASE
+api theke insert??
 unique id generation 
-    FOR REVIEW
-    FOR ANIME
     FOR PERSONNEL
 pictureid insertion
 
@@ -39,8 +34,6 @@ module.exports and require
 async await
 proper links to the folders in app.js
 update pageInfo object for all res.sends
-
-
 
 
 FEATURES
@@ -57,13 +50,13 @@ triggers
 
     INSERT TRIGGERS FOR THE
         [HANDLE IN BACKEND] REVIEWED RELATION : IF REVIEW ENTERED THEN REVIEWD WILL BE FILLED UP
-        IF VOTED ON A REVIEW, THE VOTES ATTRIBUTE OF REVIW WILL INCREASE
+        IF VOTED ON A REVIEW, THE VOTES ATTRIBUTE OF REVIEW WILL INCREASE
         PERSONNEL TO WRITER(GENRE SPECIALIZATION) AND VOICE ACTORS(ROLE SPECIALIZATION)
         IF STARRED ON ANIME UPDATE THE RATING OF THE ANIME [ COULD BE DONE IN BACKEND AS WELL]
-    if added to list, insert into preference/update counter +0.1
-    if removed from list, delete from preference/update counter -0.1
+    [DONE] if added to list, insert into preference/update counter +0.1
+    [DONE] if removed from list, delete from preference/update counter -0.1
 
-    this could be for star/ review as well. counter increment = rating / 2 -1.5
+    [DONE] this could be for star/ review as well. counter increment = rating / 2 -1.5
 
     if starred on an anime, update anime rating field avg value of all ratings OF THAT ANIME.. star/5.. 
     avg doesnt count null values in oracle avg(com_pct) = sum/count(com_pct)..

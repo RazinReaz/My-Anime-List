@@ -5,10 +5,11 @@ const router = express.Router({ mergeParams: true })
 
 
 router.get('/', async (req, res) => {
+    if (req.session.isAuth) {
+        res.redirect('/');
+    }
     res.render('login', { message: 'Please provide info' })
 })
-
-
 
 router.post('/', async (req, res) => {
     const { username, password } = req.body;
@@ -24,7 +25,7 @@ router.post('/', async (req, res) => {
     }
     var session = req.session;
     session.userid = req.body.username;
-    console.log(req.session);
+    req.session.isAuth = true;
     res.redirect('/');
 })
 

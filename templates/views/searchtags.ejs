@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Search by tags</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="search-by-tags">
+        <%- include('../partials/header.ejs') %>
+            <form action="/searchtags" method="post">
+                <h3>Select tags you want to search</h3>
+                <div>
+                    <% for (let genre of genres){ %>
+                        <input class="tags-genre" type="checkbox" id="tag[]" name="genres" value=<%=genre.GENRE_NAME %>>
+                        <label for="tag[]">
+                            <%= genre.GENRE_NAME %>
+                        </label><br>
+                        <% } %>
+                </div>
+                <h3>Select year you want to search</h3>
+                <div>
+                    <% for (let year of years){ %>
+                        <input class="tags-year" type="checkbox" id="yr" name="years" value=<%=year %> >
+                        <label for="yr">
+                            <%= year %>
+                        </label><br>
+                        <% } %>
+                </div>
+                <input type="submit" value="Search">
+            </form>
+
+            <% if( typeof animes !=="undefined" ) { %>
+                <ul>
+                    <% for (let anime of animes){ %>
+                        <li> <a class="listed-anime" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %>
+                            </a></li>
+                        <% } %>
+                </ul>
+                <% } %>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

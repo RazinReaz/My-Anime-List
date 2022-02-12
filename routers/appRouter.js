@@ -2,22 +2,17 @@ const express = require('express')
 const router = express.Router({ mergeParams: true });
 
 
-router.get('/test', (req, res) => {
-    res.send('This is from file');
-})
-
-
-
-
-
 
 //!require all sub routers
-const animeRouter = require('./anime/anime')
-const animeListRouter = require('./animelist/animelist')
 const loginRouter = require('./authentication/login')
 const registerRouter = require('./authentication/register')
 const logoutRouter = require('./authentication/logout')
 
+const animeRouter = require('./anime/anime')
+const animeListRouter = require('./animelist/animelist')
+const searchTagsRouter = require('./searchtags/searchtags')
+const genreRouter = require('./genre/genre')
+const studioRouter = require('./studio/studio')
 
 
 
@@ -39,6 +34,9 @@ router.use('/animelist', animeListRouter)
 router.use('/login', loginRouter)
 router.use('/register', registerRouter)
 router.use('/logout', logoutRouter)
+router.use('/searchtags', searchTagsRouter)
+router.use('/genre', genreRouter)
+//router.use('/studio', studioRouter)
 
 
 
@@ -46,7 +44,7 @@ router.get('*', (req, res) => {
 
     const data = {
         pageTitle: '404',
-        username: '',
+        username: req.session.userid,
         message: 'Requested page does not exist'
     }
     res.status(400).render('error', data)

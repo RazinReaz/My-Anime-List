@@ -11,7 +11,7 @@
 <body>
     <div class="main-content">
         <%- include('../partials/header.ejs') %>
-            <p>This is the animelist page</p>
+            <p>Showing results of <%= genre_name %> genre </p>
             <ul>
                 <% for (let anime of animes){ %>
                     <li> <a class="listed-anime" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a>
