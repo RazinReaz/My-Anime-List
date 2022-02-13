@@ -1,25 +1,39 @@
+SEARCH BAR
+
+
+[TEST]
 USER AUTHENTICATION TEST    
 SEARCH BY TAG TEST
 TRIGGER FINALIZE
+STUDIO.EJS HOILE TEST
+GENRES.EJS HOILE TEST
 
 [DONE LIST]
 LOGIN, LOGOUT, REGISTER
 SEARCH BY TAGS
+GENRE PAGE
+STUDIO AND STUDIOS PAGE
+
+
+ISSUES
+
+
 
 BACKEND
 listener event js function
 /writer/
 /voice actor/
-/studio/ will have the animes produced by that studio
 
 FRONTEND
+HOME PAGE EDIT
+ANIME PAGE EDIT
+ANIMELIST PAGE edit
+REVIEW AND COMMENTS PAGE
+dropdown on home page for animelist, genres, studios, writers
 css files
 img jogar kora
 buttons
 
-ORGANIZATION
-all routers
-all Db codes like get all anime
 
 
 DATABASE

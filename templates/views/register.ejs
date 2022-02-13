@@ -8,20 +8,21 @@
     <p style="color:orangered;">
         <%= message %>
     </p>
-
-    <form action="/register" method="post">
-        <h2 class="h2-title-auth">Register</h2>
-        <div class="input-field">
-            <input type="text" name="username" id="username" placeholder="Enter Username">
-        </div>
-        <div class="input-field">
-            <input type="email" name="email" id="email" placeholder="Enter email">
-        </div>
-        <div class="input-field">
-            <input type="password" name="password" id="password" placeholder="Enter Password">
-        </div>
-        <input type="submit" value="Register">
-    </form>
+    <div>
+        <form action="/register" method="post">
+            <h2 class="h2-title-auth">Register</h2>
+            <div class="input-field">
+                <input type="text" name="username" id="username" placeholder="Enter Username">
+            </div>
+            <div class="input-field">
+                <input type="email" name="email" id="email" placeholder="Enter email">
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" id="password" placeholder="Enter Password">
+            </div>
+            <input type="submit" value="Register">
+        </form>
+    </div>
 </body>
 
 </html>

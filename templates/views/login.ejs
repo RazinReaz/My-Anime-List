@@ -9,16 +9,18 @@
         <%= message %>
     </p>
     <!-- !this is important. posts to /login route -->
-    <form action="/login" method="post">
-        <h2>Login</h2>
-        <div class="input-field">
-            <input type="text" name="username" id="username" placeholder="Enter Username">
-        </div>
-        <div class="input-field">
-            <input type="password" name="password" id="password" placeholder="Enter Password">
-        </div>
-        <input type="submit" value="LogIn">
-    </form>
+    <div>
+        <form action="/login" method="post">
+            <h2>Login</h2>
+            <div class="input-field">
+                <input type="text" name="username" id="username" placeholder="Enter Username">
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" id="password" placeholder="Enter Password">
+            </div>
+            <input type="submit" value="LogIn">
+        </form>
+    </div>
 </body>
 
 </html>

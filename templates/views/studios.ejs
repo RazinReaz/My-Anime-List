@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Anime List</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body>
+    <div class="main-content">
+        <%- include('../partials/header.ejs') %>
+            <p>This is the studio list page</p>
+            <ul>
+                <% for (let studio of studios){ %>
+                    <% studioURL=encodeURIComponent(studio.STUDIO_NAME) %>
+                        <li> <a class="listed-studio" href=<%="/studio/" + studioURL %> %> >
+                                <%= studio.STUDIO_NAME %>
+                            </a>
+                        </li>
+                        <% } %>
+            </ul>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Anime List</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body>
+    <div class="main-content">
+        <%- include('../partials/header.ejs') %>
+            <h3>
+                <%= studio.STUDIO_NAME %>
+            </h3>
+            <p>Founded : <%= studio.FOUNDING_DATE %>
+            </p>
+            <p>Website : <a href=<%="https://" + studio.WEBSITE %>> <%= studio.WEBSITE %></a></p>
+            <p>Headquarters : <%= studio.HEADQUARTER %>
+            </p>
+            <ul>
+                <p>Animes produced by <%= studio.STUDIO_NAME %>
+                </p>
+                <% for (let anime of animes){ %>
+                    <li> <a class="listed-anime" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a>
+                    </li>
+                    <% } %>
+            </ul>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

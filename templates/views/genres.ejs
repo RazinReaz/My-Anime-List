@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Anime List</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body>
+    <div class="main-content">
+        <%- include('../partials/header.ejs') %>
+            <p>This is the genre list page</p>
+            <ul>
+                <% for (let genre of genres){ %>
+                    <li> <a class="listed-genre" href=<%="/genre/" + genre.GENRE_NAME %> > <%= genre.GENRE_NAME %> </a>
+                    </li>
+                    <% } %>
+            </ul>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

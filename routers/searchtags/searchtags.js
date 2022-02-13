@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
     const years = range(33, 1990);
     const data = {
         pageTitle: 'MyAnimeList',
+        isAuth: req.session.isAuth,
         username: req.session.userid,
         message: 'Search Animes By Tags',
 
@@ -42,6 +43,7 @@ router.post('/', async (req, res) => {
     years = range(33, 1990);
     const data = {
         pageTitle: 'MyAnimeList',
+        isAuth: req.session.isAuth,
         username: req.session.userid,
         message: 'Search Animes By Tags',
 

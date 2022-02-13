@@ -1,6 +1,6 @@
 const database = require('./database')
 
-//return all info about 1 anime
+
 async function getAnimeByID(anime_id) {
     let sql = `
         select * 
@@ -73,7 +73,7 @@ async function getAnimesByYear(years) {
 
 async function getAllGenres() {
     let sql = `
-        SELECT *
+        SELECT GENRE_NAME
         FROM GENRE
     `
     return (await database.execute(sql, [], database.options)).rows
@@ -98,5 +98,5 @@ module.exports = {
     getAllGenres,
     getAnimesByGenreAndOrYear,
     getAnimesByYear,
-    getAnimesTitleandIDByOneGenre
+    getAnimesTitleandIDByOneGenre,
 }

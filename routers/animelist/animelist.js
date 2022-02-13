@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
 
     const data = {
         pageTitle: 'List of Animes',
+        isAuth: req.session.isAuth,
         username: req.session.userid,
 
         animes: animeList

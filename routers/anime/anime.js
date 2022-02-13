@@ -13,6 +13,7 @@ router.get('/:anime_id', async (req, res) => {
     const data = {
         //! more stuff here
         pageTitle: 'Anime',
+        isAuth: req.session.isAuth,
         username: req.session.userID,
 
         anime,

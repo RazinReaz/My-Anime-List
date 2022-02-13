@@ -23,8 +23,8 @@ router.post('/', async (req, res) => {
     if (!passwordMatch) {
         return res.render('login', { message: 'Error logging in' })
     }
-    var session = req.session;
-    session.userid = req.body.username;
+    //var session = req.session;
+    req.session.userid = req.body.username;
     req.session.isAuth = true;
     res.redirect('/');
 })
