@@ -6,9 +6,24 @@
     </span>
     </p>
     
-    <form class="example" action="action_page.php">
+    <form class="Search" action="action_page.php">
       <input type="text" placeholder="Search.." name="search">
-      <button type="submit">Search</button>
+      <button type="submit">Search</button><br><br>
+      <p style="text-align: left;">
+    </form>
+    <form class="Search-by" action="action_page.php">
+      <p style="text-align: left;">
+      <label for="search-by" style="background-color: bisque;">Search by:</label>
+        <select name="search-by" id="search-by">
+          <option value="tags">Tags</option>
+          <option value="studios">Studios</option>
+          <option value="genre">Genres</option>
+          <option value="writer">Writer</option>
+          <option value="release-season">Release Season</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit" style="background-color:burlywood;">
+        </p>
     </form>
 
     <h1> <%= pageTitle %> </h1> 

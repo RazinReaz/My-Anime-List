@@ -32,7 +32,7 @@ h1 {
 }
 
 /* Style the search field */
-form.example input[type=text] {
+form.Search input[type=text] {
   padding: 10px;
   font-size: 17px;
   border: 1px solid grey;
@@ -42,7 +42,7 @@ form.example input[type=text] {
 }
 
 /* Style the submit button */
-form.example button {
+form.Search button {
   float: left;
   width: 20%;
   padding: 10px;
@@ -54,12 +54,12 @@ form.example button {
   cursor: pointer;
 }
 
-form.example button:hover {
+form.Search button:hover {
   background:brown;
 }
 
 /* Clear floats */
-form.example::after {
+form.Search::after {
   content: "";
   clear: both;
   display: table;
