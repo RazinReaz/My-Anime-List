@@ -15,16 +15,16 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"get function" : {
+	"get function": {
 		"prefix": "sqlget",
-		"body" : [
+		"body": [
 			"async function get$1 ($2) {",
-   			"    let sql = `",
-        	"        select ${3:*}",
-			"        from $4",
-			"        where $5 = :$6",
-   			"    `",
-   			"    return (await database.execute(sql,[$7], database.options)).rows$8",
+			"    let sql = `",
+			"        SELECT ${3:*}",
+			"        FROM $4",
+			"        WHERE $5 = :$6",
+			"    `",
+			"    return (await database.execute(sql,[$7], database.options)).rows$8",
 			"}"
 		],
 		"description": ""

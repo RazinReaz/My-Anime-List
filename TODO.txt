@@ -1,4 +1,11 @@
-SEARCH BAR
+
+REVIEW ID STUFF
+
+CHARACTER PAGES
+PERSONNEL PAGES
+update and delete jana lagbe
+    ADD TO LIST
+    RATING
 
 
 [TEST]
@@ -11,18 +18,19 @@ GENRES.EJS HOILE TEST
 [DONE LIST]
 LOGIN, LOGOUT, REGISTER
 SEARCH BY TAGS
+SEARCH WITH PARTIALS
 GENRE PAGE
 STUDIO AND STUDIOS PAGE
+ANIME STAR PROCEDURE
 
 
 ISSUES
-
+update and delete jana lagbe
 
 
 BACKEND
 listener event js function
-/writer/
-/voice actor/
+
 
 FRONTEND
 HOME PAGE EDIT
@@ -37,17 +45,11 @@ buttons
 
 
 DATABASE
-api theke insert??
-unique id generation 
-    FOR PERSONNEL
-pictureid insertion
-
-
-DON'T FORGET
-module.exports and require
-async await
-proper links to the folders in app.js
-update pageInfo object for all res.sends
+    trigger for stars
+    api theke insert??
+    unique id generation 
+        FOR PERSONNEL
+    pictureid insertion
 
 
 FEATURES
@@ -56,19 +58,18 @@ add to list, remove from list (triggers the users recommendation)
 Get recommendation
 Popular anime's of the season
 Newly released anime
-Search by Genre, studio etc.
+[DONE]search by tags
 
 
 
 triggers
-
     INSERT TRIGGERS FOR THE
         [HANDLE IN BACKEND] REVIEWED RELATION : IF REVIEW ENTERED THEN REVIEWD WILL BE FILLED UP
         IF VOTED ON A REVIEW, THE VOTES ATTRIBUTE OF REVIEW WILL INCREASE
         PERSONNEL TO WRITER(GENRE SPECIALIZATION) AND VOICE ACTORS(ROLE SPECIALIZATION)
         IF STARRED ON ANIME UPDATE THE RATING OF THE ANIME [ COULD BE DONE IN BACKEND AS WELL]
-    [DONE] if added to list, insert into preference/update counter +0.1
-    [DONE] if removed from list, delete from preference/update counter -0.1
+    [DONE] if added to list, insert into preference/update counter +0.5
+    [DONE] if removed from list, update counter -0.5
 
     [DONE] this could be for star/ review as well. counter increment = rating / 2 -1.5
 

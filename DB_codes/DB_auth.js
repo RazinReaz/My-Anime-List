@@ -5,9 +5,9 @@ const database = require('./database')
 
 async function getUserByUsername(username) {
     let sql = `
-        select *
-        from account
-        where USERNAME = :username
+        SELECT *
+        FROM ACCOUNT
+        WHERE USERNAME = :USERNAME
     `
     return (await database.execute(sql, [username], database.options)).rows
 }

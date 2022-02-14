@@ -11,6 +11,7 @@ const logoutRouter = require('./authentication/logout')
 const animeRouter = require('./anime/anime')
 const animeListRouter = require('./animelist/animelist')
 const searchTagsRouter = require('./searchtags/searchtags')
+const searchResultsRouter = require('./searchresults/searchresults.js')
 const genreRouter = require('./genre/genre')
 const studioRouter = require('./studio/studio')
 
@@ -35,13 +36,15 @@ router.use('/login', loginRouter)
 router.use('/register', registerRouter)
 router.use('/logout', logoutRouter)
 router.use('/searchtags', searchTagsRouter)
+router.use('/searchresults', searchResultsRouter)
 router.use('/genre', genreRouter)
 router.use('/studio', studioRouter)
 
 
 
-router.get('*', (req, res) => {
+//!ERRORS
 
+router.get('*', (req, res) => {
     const data = {
         pageTitle: '404',
         isAuth: req.session.isAuth,

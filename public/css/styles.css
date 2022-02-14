@@ -33,9 +33,10 @@ header a {
     text-decoration: none;  /* removes the underline in links */
 }
 
-input {
+input.search-bar {
     border: 1px solid #cccccc;
-    padding: 8px;
+    padding: 6px;
+    width: 300px
 }
 
 button {
@@ -44,4 +45,25 @@ button {
     background: #888888;
     color: white;
     padding: 6px;
+}
+
+a.listed {
+    color: #8a2be2;
+    padding: 6px;
+    text-decoration: none;
+}
+
+form.search-bar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+form.search-bar button:hover {
+  background:#555555;
+}
+/* Clear floats */
+form.search-bar::after {
+  content: "";
+  clear: both;
+  display: table;
 }

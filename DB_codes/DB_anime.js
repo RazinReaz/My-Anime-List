@@ -3,17 +3,34 @@ const database = require('./database')
 
 async function getAnimeByID(anime_id) {
     let sql = `
-        select * 
-        from ANIME 
-        where Anime_id = :anime_id
+        SELECT * 
+        FROM ANIME 
+        WHERE ANIME_ID = :ANIME_ID
     `
     return (await database.execute(sql, [anime_id], database.options)).rows[0]
+}
+
+async function getAnimeByTitle(title) {
+    let sql = `
+        SELECT ANIME_ID, ANIME_TITLE FROM ANIME
+        WHERE LOWER(ANIME_TITLE) = :TITLE
+    `
+    return (await database.execute(sql, [title], database.options)).rows
+}
+
+async function getAnimesByREGEX(string) {
+    let sql = `
+    SELECT ANIME_ID, ANIME_TITLE FROM ANIME WHERE LOWER(ANIME_TITLE) LIKE '${string[0]}'`
+    for (let i = 1; i < string.length; i++) {
+        sql += ` AND LOWER(ANIME_TITLE) LIKE '${string[i]}'`;
+    }
+    return (await database.execute(sql, [], database.options)).rows
 }
 
 
 async function getGenresByID(anime_id) {
     let sql = `
-        select GENRE_NAME from ANIME_GENRE where Anime_id = :anime_id
+        SELECT GENRE_NAME FROM ANIME_GENRE WHERE ANIME_ID = :ANIME_ID
     `
     return (await database.execute(sql, [anime_id], database.options)).rows
 }
@@ -21,15 +38,15 @@ async function getGenresByID(anime_id) {
 
 async function getWriterByID(PERSONNEL_ID) {
     let sql = `
-        select * from WRITER where PERSONNEL_ID = :id
+        SELECT * FROM WRITER WHERE PERSONNEL_ID = :ID
     `
     return (await database.execute(sql, [PERSONNEL_ID], database.options)).rows[0]
 }
 
 async function getAllAnimeTitleAndID() {
     let sql = `
-        select ANIME_TITLE, ANIME_ID
-        from anime
+        SELECT ANIME_TITLE, ANIME_ID
+        FROM ANIME
     `
     return (await database.execute(sql, [], database.options)).rows
 }
@@ -90,8 +107,30 @@ async function getAnimesTitleandIDByOneGenre(genre) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+async function updateAnimeRating(anime_id) {
+    let sql = `
+    BEGIN
+	    UPDATE_ANIME_RATING(:ANIME_ID);
+    END;
+    `
+    return (await database.execute(sql, [anime_id], database.options)).rows
+}
+
+
 module.exports = {
     getAnimeByID,
+    getAnimeByTitle,
+    getAnimesByREGEX,
     getGenresByID,
     getWriterByID,
     getAllAnimeTitleAndID,
@@ -99,4 +138,6 @@ module.exports = {
     getAnimesByGenreAndOrYear,
     getAnimesByYear,
     getAnimesTitleandIDByOneGenre,
+
+    updateAnimeRating
 }

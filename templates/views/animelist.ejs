@@ -11,13 +11,16 @@
 <body>
     <div class="main-content">
         <%- include('../partials/header.ejs') %>
-            <p>This is the animelist page</p>
-            <ul>
-                <% for (let anime of animes){ %>
-                    <li> <a class="listed-anime" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a>
-                    </li>
+            <% if(!animes || animes.length==0) { %>
+                <p>No result found</p>
+                <% } else { %>
+                    <ul>
+                        <% for (let anime of animes){ %>
+                            <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %></a>
+                            </li>
+                            <% } %>
+                    </ul>
                     <% } %>
-            </ul>
     </div>
     <%- include('../partials/footer.ejs') %>
 </body>
