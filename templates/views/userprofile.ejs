@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Users profile</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="users profile">
+        <%- include('../partials/header.ejs') %>
+        <p style="font-size: x-large; color: purple;">
+            <%= Username %>
+        </p>
+        <br><br>
+        <p style="color: brown;">
+            Email:
+        </p>
+        <br>
+        <p style="color: brown;">
+            Bio:
+        </p>
+        <br>
+        <p style="color: brown;">
+            Join Date:
+        </p>
+        <br><br>
+    
+        <button class="watchlist" style="background-color: cornsilk;" type="submit">
+            Users watchlist
+        </button>
+
+        <!--if watchlist is a separate page then -->
+        <a href='/watchlist/'>
+            <button class="watchlist" style="background-color: cornsilk;">
+                Click Here
+            </button>
+        </a>
+        <br><br>
+        <p style="color: brown;">
+            Review:<br>
+            <p style="text-align: left;">
+                <%= Anime_Name %> : <%= Username.review %>
+            </p>
+            <p style="text-align: right;">
+                <%= review.Vote %>
+            </p>
+        </p>
+
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>
