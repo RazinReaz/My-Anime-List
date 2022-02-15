@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Users profile</title>
     <link rel="icon" href="/img/icons/mal-logo-head.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
-    <div class="users profile">
-        <%- include('../partials/header.ejs') %>
-        <p style="font-size: x-large; color: purple;">
-            <%= Username %>
-        </p>
-        <br><br>
-        <p style="color: brown;">
-            Email:
-            <%= email %>
-        </p>
-        <br>
-        <p style="color: brown;">
-            Bio:
-            <%= bio %>
-        </p>
-        <br>
-        <p style="color: brown;">
-            Join Date:
-            <%= join_date %>
-        </p>
-        <br><br>
-    
-        <button class="watchlist" style="background-color: cornsilk;" type="submit">
-            Users watchlist
-        </button>
+    <%- include('../partials/header.ejs') %>
+        <% console.log(userInfo) %>
+            <div class="users profile">
+                <h3>
+                    <%= username %>
+                </h3>
+                <br>
+                <p>
+                    Email : <%= userInfo.EMAIL %>
+                </p>
+                <p>
+                    Bio: <%= userInfo.BIO %>
+                </p>
+                <p>
+                    Join Date: <%= userInfo.JOIN_DATE %>
+                </p>
+                <br>
 
-        <!--if watchlist is a separate page then -->
-        <a href='/watchlist/'>
-            <button class="watchlist" style="background-color: cornsilk;">
-                Click Here
-            </button>
-        </a>
-        <br><br>
-        <p style="color: brown;">
-            Review:<br>
-            <p style="text-align: left;">
-                <%= Anime_Name %> : <%= Username.review %>
-            </p>
-            <p style="text-align: right;">
-                <%= review.Vote %>
-            </p>
-        </p>
 
-    </div>
-    <%- include('../partials/footer.ejs') %>
+
+                <a href=<%="/user/" + userInfo.USERNAME + "/watchlist/" %> >
+                    <button>
+                        Your Watchlist
+                    </button>
+                </a>
+                <br><br>
+
+                <button class="open-button" onclick="openForm()">Upadate Info</button>
+                <br>
+
+                <div class="form-popup" id="myForm">
+                    <form action="/action_page.php" class="form-container">
+                        <h1>UserInfo update</h1>
+                  
+                        <label for="email"><b>Edit Email</b></label>
+                        <input type="text" placeholder="Edit Email" name="email">
+                        <br><br>
+                  
+                        <label for="text"><b>Edit Bio:</b></label>
+                        <br>
+                        <textarea id="text" name="text" rows="5" cols="70" placeholder="Edit bio..."></textarea>
+                        <br><br>
+                  
+                        <button type="submit" class="btn">Edit</button>
+                    </form>
+                </div>
+                <% var a;%>
+                <% function openForm(){%>
+                    <% if(a==1){ %>
+                        <% document.getElementById("myForm").style.display="block"; %>
+                        <% return a=0; %>
+                    <%} %>
+                    <% else{ %>
+                        <% document.getElementById("myForm").style.display="none"; %>
+                        <% return a=1; %>
+                    <%} %>
+                <%}%>
+            </div>
+            <%- include('../partials/footer.ejs') %>
 </body>
+
 </html>
