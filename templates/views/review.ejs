@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reviews</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="reviews">
+        <%- include('../partials/header.ejs') %>
+        <form class="Review" action="action_page.php">
+            <label for="text">Add Reviews:</label>
+            <br>
+            <textarea id="text" name="text" rows="5" cols="70"></textarea>
+            <br/>
+            <input type="submit" value="Add review">
+        </form>
+        <br><br>
+        <p style="color: darkslateblue;">All Reviews</p><br>
+        <table style="border-style:double;">
+            <tr>
+                <th style="color: darkslategray; border-style: outset;">Username</th>
+                <th style="color: darkslategray; border-style: outset;">Anime Name</th>
+                <th style="color: darkslategray; border-style: outset;">Review</th>
+                <th style="color: darkslategray; border-style: outset;">Vote</th>
+            </tr>
+            <tr>
+                <td style="border-style: outset;">
+                    <p>Ekhane character username listed hobe</p>
+                </td>
+                <td style="border-style: outset;">
+                    <p>Ekhane anime name listed hobe</p>
+                </td>
+                <td style="border-style: outset;">
+                    <p>Ekhane oi username oi anime er review listed hobe</p>
+                </td>
+                <td style="border-style: outset;">
+                    <p>Vote</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>
