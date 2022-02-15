@@ -15,8 +15,11 @@ const searchResultsRouter = require('./searchresults/searchresults.js')
 const genreRouter = require('./genre/genre')
 const studioRouter = require('./studio/studio')
 
+const userRouter = require('./user/user')
 
 
+
+//!HOME PAGE
 router.get('/', (req, res) => {
     res.render('index', {
         pageTitle: 'MyAnimeList',
@@ -39,6 +42,7 @@ router.use('/searchtags', searchTagsRouter)
 router.use('/searchresults', searchResultsRouter)
 router.use('/genre', genreRouter)
 router.use('/studio', studioRouter)
+router.use('/user', userRouter)
 
 
 

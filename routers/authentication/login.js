@@ -11,6 +11,8 @@ router.get('/', async (req, res) => {
     res.render('login', { message: 'Please provide info' })
 })
 
+
+
 router.post('/', async (req, res) => {
     const { username, password } = req.body;
     const user = await DB_auth.getUserByUsername(username);

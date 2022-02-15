@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Users profile</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+        <% console.log(userInfo) %>
+            <div class="users profile">
+                <h3>
+                    <%= username %>
+                </h3>
+                <br>
+                <p>
+                    Email : <%= userInfo.EMAIL %>
+                </p>
+                <p>
+                    Bio: <%= userInfo.BIO %>
+                </p>
+                <p>
+                    Join Date: <%= userInfo.JOIN_DATE %>
+                </p>
+                <br>
+
+
+
+                <a href=<%="/user/" + userInfo.USERNAME + "/watchlist/" %> >
+                    <button>
+                        Your Watchlist
+                    </button>
+                </a>
+            </div>
+            <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>
