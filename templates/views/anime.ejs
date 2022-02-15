@@ -19,16 +19,25 @@
             <br>
         </p>
         <h3 class = "anime-title" > <%= anime.ANIME_TITLE %></h3>
-        <div id="left">
+        <p style="text-align: right; color:rebeccapurple; font-size: larger;">Rate 
+        <div class="stars">
+            <div class="star-rating">
+                <input type="radio" id="star1"><label for="star1"></label>
+                <input type="radio" id="star2"><label for="star2"></label>
+                <input type="radio" id="star3"><label for="star3"></label>
+                <input type="radio" id="star4"><label for="star4"></label>
+                <input type="radio" id="star5"><label for="star5"></label>
+            </div>
+        </div>
+        </p>
+        <div class="rank">
             Rank
         </div>
-        <div id="center">
+        <div class="average-rating">
             Average Rating
         </div>
-        <div id="right">
-            Stars
-        </div>
-        <p><br></p>
+        
+        <p><br><br></p>
         <p>Synopsis : <%= anime.SYNOPSIS %></p>
         <p>Genre : 
             <% for (let genre of genres){ %>
@@ -38,7 +47,31 @@
         </p>
         <p>Released : <%= anime.RELEASE_DATE %></p>
         <p>Studio : <a href= <%= "/studio/" + anime.STUDIO_NAME%>> <%= anime.STUDIO_NAME %> </a> </p>
-        <p>Writer : <a href= <%= "/personnel/" + writer.PERSONNEL_ID%> > <%= writer.FIRST_NAME %> <%= writer.LAST_NAME %> </a> </p> 
+        <p>Writer : <a href= <%= "/personnel/" + writer.PERSONNEL_ID%> > <%= writer.FIRST_NAME %> <%= writer.LAST_NAME %> </a> </p>
+        <p style="color: rgb(209, 34, 34);">Episodes</p>
+        <div class="episodes">
+            <ul>
+                <p>Seasons will be listed</p>
+                <li><a href="#">Season 1</a></li>
+                <li><a href="#">Season 2</a></li>
+                <li><a href="#">Season 3</a></li>
+            </ul>
+        </div>
+        <p style="color:coral;">Character & Voice actor:</p>
+        <table style="border-style:double;">
+            <tr>
+                <th style="color: darkslategray; border-style: outset;">Character</th>
+                <th style="color: darkslategray; border-style: outset;">Voice Actor</th>
+            </tr>
+            <tr>
+                <td style="border-style: outset;">
+                    <p>Ekhane character er naam listed hobe</p>
+                </td>
+                <td style="border-style: outset;">
+                    <p>Ekhane oi character er voice actor listed hobe</p>
+                </td>
+            </tr>
+        </table>
     </div>
     <%- include('../partials/footer.ejs') %>
 </body>
