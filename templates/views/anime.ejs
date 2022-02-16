@@ -14,12 +14,12 @@
         <!-- {{!-- get the jpg image and anime title from sent data  --}} -->
         <img src= <%= "/img/anime_pic/"+anime.ANIME_ID + ".jpg" %> alt= <%= anime.ANIME_TITLE + "image" %> >
         <p>
-            <button type="button" style="color: lightslategrey;">Add to list++</button>
+            <button style="color: lightslategrey;">Add to list++</button>
             <span style="float: right;color:royalblue;">
                  Members ekhane 
             </span>
+        </p>    
             <br>
-        </p>
         <h3 class = "anime-title" > <%= anime.ANIME_TITLE %></h3>
         <p style="text-align: right; color:rebeccapurple; font-size: larger;">Rate 
         <div class="stars">
@@ -38,6 +38,7 @@
         <div class="average-rating">
             Average Rating
         </div>
+        
         
         <p><br><br></p>
         <p>Synopsis : <%= anime.SYNOPSIS %></p>

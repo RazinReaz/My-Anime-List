@@ -9,13 +9,30 @@
 <body>
     <div class="reviews">
         <%- include('../partials/header.ejs') %>
-       <form class="Review" action="action_page.php">
-            <label for="text">Add Reviews:</label>
-            <br>
-            <textarea id="text" name="text" rows="5" cols="70"></textarea>
-            <br/>
-            <input type="submit" value="Add review">
-        </form>
+        <br>
+        <button class="open-review" onclick="openReview()">Write/Edit review</button>
+        <br><br>
+
+        <div class="review-edit" id="myReview">
+            <form class="Review" action="action_page.php">
+                <label for="text">Add Reviews:</label>
+                <br>
+                <textarea id="text" name="text" rows="5" cols="70"></textarea>
+                <br/>
+                <input type="submit" value="Add review">
+            </form>
+        </div>
+        <% var a=1;%>
+        <% function openReview(){%>
+            <% if(a==1){ %>
+                <% document.getElementById("myReview").style.display="block"; %>
+                <% return a=0; %>
+            <%} %>
+            <% else{ %>
+                <% document.getElementById("myReview").style.display="none"; %>
+                <% return a=1; %>
+            <%} %>
+        <%}%>
         <br><br>
         <p style="color: darkslateblue;">All Reviews</p><br>
         <table style="border-style:double;">
@@ -34,6 +51,7 @@
                 </td>
                 <td style="border-style: outset;">
                     <p>Ekhane oi username oi anime er review listed hobe</p>
+                    <button name="remove" id="remove" onclick="return confirm('Do you really want to delete the review??');">Remove review</button>
                 </td>
                 <td style="border-style: outset;">
                     <p class="voting">
