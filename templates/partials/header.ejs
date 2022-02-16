@@ -1,12 +1,21 @@
 <header>
+  <h1> <%= pageTitle %> </h1> 
+    <a href="/">Home</a>
+    <a href="/animelist">Animelist</a>
+    <a href="/user">username</a>
+
     <p style="text-align: left;">
         <%= "Ekhane username boshbe" %>
     <span style="float: right;">
       <a href="/login">Login/Signup</a>
     </span>
     </p>
+    <form class="search-bar" action="/searchresults" method="post">
+      <input class="search-bar" type="text" placeholder="Search for anything" name="search">
+      <button type="submit">Search</button>
+  </form>
     
-    <form class="Search" action="action_page.php">
+    <!--<form class="Search" action="action_page.php">
       <input type="text" placeholder="Search.." name="search">
       <button type="submit">Search</button><br><br>
       <p style="text-align: left;">
@@ -30,7 +39,7 @@
     <h1> <%= pageTitle %> </h1> 
     <a href="/">Home</a>
     <a href="/animelist">Animelist</a>
-    <a href="/about">About</a>
+    <a href="/about">About</a>-->
 
     
-</header>
+</header> 

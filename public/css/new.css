@@ -1,3 +1,10 @@
 .form-popup{
     display: none;
 }
+.voting input{
+    width: 50px;
+    border: none;
+    background: none;
+    color:navy;
+    font-weight: bold;
+}
