@@ -26,7 +26,6 @@ router.post('/', async (req, res) => {
 
     //if new user
     const hashpassword = await bcrypt.hash(password, 4);
-    console.log(hashpassword)
     //insert user into db with hashed password
     await DB_auth.insertAccountIntoDB(username, email, hashpassword);
     res.redirect('/')

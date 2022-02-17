@@ -49,13 +49,13 @@ button {
 }
 
 a.listed {
-    color: #844ff8;
+    color: #946aec;
     font-weight: bold;
     padding: 6px;
     text-decoration: none;
 }
 a.favourited {
-    color: #f35858;
+    color: #e60ad0;
     padding: 6px;
     text-decoration: none;
 }
