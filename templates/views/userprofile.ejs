@@ -5,36 +5,72 @@
     <title>Users profile</title>
     <link rel="icon" href="/img/icons/mal-logo-head.png">
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .form-popup {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     <%- include('../partials/header.ejs') %>
-        <% console.log(userInfo) %>
-            <div class="users profile">
-                <h3>
-                    <%= username %>
-                </h3>
-                <br>
-                <p>
-                    Email : <%= userInfo.EMAIL %>
-                </p>
-                <p>
-                    Bio: <%= userInfo.BIO %>
-                </p>
-                <p>
-                    Join Date: <%= userInfo.JOIN_DATE %>
-                </p>
-                <br>
+        <div class="users profile">
+            <h3>
+                <%= username %>
+            </h3>
+            <br>
+            <p>Email : <%= userInfo.EMAIL %>
+            </p>
+            <p> Bio: <%= userInfo.BIO %>
+            </p>
+            <p>Join Date : <%= userInfo.JOIN_DATE %>
+            </p>
+            <br>
 
+            <a href=<%="/user/" + userInfo.USERNAME + "/watchlist/" %> >
+                <button>
+                    Your Watchlist
+                </button>
+            </a>
+        </div>
+        <br>
+        <div>
 
+            <button class="update-info-show" onclick="openForm()">Update Info</button>
+            <div class="form-popup" id="update-info-form">
+                <form action=<%="/user/" + username + "/update" %> method = "post" class="form-container">
+                    <h3>User information update</h3>
+                    <label for="email"><b>Edit Email</b></label>
+                    <input type="text" placeholder="Edit Email" name="email" value=<%=userInfo.EMAIL %> >
+                    <br><br>
 
-                <a href=<%="/user/" + userInfo.USERNAME + "/watchlist/" %> >
-                    <button>
-                        Your Watchlist
-                    </button>
-                </a>
+                    <label for="bio"><b>Edit Bio:</b></label>
+                    <br>
+                    <textarea id="bio" name="bio" rows="5" cols="50" placeholder="Edit bio..."></textarea>
+                    <br><br>
+
+                    <button type="submit" class="btn"> Update</button>
+                </form>
             </div>
-            <%- include('../partials/footer.ejs') %>
+            <script>
+                var a = 1;
+                function openForm() {
+                    if (a == 1) {
+                        document.getElementById("update-info-form").style.display = "none";
+                        return a = 0;
+                    } else if (a == 0) {
+                        document.getElementById("update-info-form").style.display = "block";
+                        return a = 1;
+                    }
+                }
+
+                function toggleform() {
+                    return a = !a;
+                }
+            </script>
+        </div>
+
+        <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

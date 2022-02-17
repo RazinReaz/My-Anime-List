@@ -23,7 +23,7 @@
                 <p>Animes produced by <%= studio.STUDIO_NAME %>
                 </p>
                 <% for (let anime of animes){ %>
-                    <li> <a class="listed-anime" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a>
+                    <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a>
                     </li>
                     <% } %>
             </ul>

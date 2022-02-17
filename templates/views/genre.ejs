@@ -5,7 +5,6 @@
     <title>My Anime List</title>
     <link rel="icon" href="/img/icons/mal-logo-head.png">
     <link rel="stylesheet" href="/css/styles.css">
-
 </head>
 
 <body>
@@ -14,7 +13,7 @@
             <p>Showing results of <%= genre_name %> genre </p>
             <ul>
                 <% for (let anime of animes){ %>
-                    <li> <a class="listed-anime" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a>
+                    <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a>
                     </li>
                     <% } %>
             </ul>

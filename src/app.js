@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
+const ejsLint = require('ejs-lint')
 
 const database = require('../DB_codes/database')
 const appRouter = require('../routers/appRouter')
@@ -31,6 +32,7 @@ app.use(express.static(publicPath))
 app.use(cookieParser());
 
 app.use(appRouter)
+
 
 
 const PORT = process.env.PORT || 3000

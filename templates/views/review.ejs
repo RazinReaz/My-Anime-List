@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Anime List</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/test.css">
+</head>
+
+<body>
+    <div class="reviews">
+        <%- include('../partials/header.ejs') %>
+            <br>
+            <% if(isAuth) { %>
+                <button class="open-review" onclick="openReview()"> Write/Edit review</button>
+                <br>
+
+                <div class="review-edit" id="myReview">
+                    <form class="Review" method="post" action=<%="/anime/" + anime_id + "/reviews" %> >
+                        <textarea id="text" name="reviewContent" rows="5" cols="50"><%= userReviewContent %></textarea>
+                        <input type="hidden" name="username" value=<%=username %> >
+                        <input type="hidden" name="anime_id" value=<%=anime_id%>>
+                        <br>
+                        <button type="submit"> Post </button>
+                    </form>
+                </div>
+
+                <script>
+                    var a = 1;
+                    function openReview() {
+                        if (a == 1) {
+                            document.getElementById("myReview").style.display = "none";
+                            return a = 0;
+                        } else {
+                            document.getElementById("myReview").style.display = "block";
+                            return a = 1;
+                        }
+                    }
+                </script>
+
+                <% } %>
+                    <br>
+
+                    <p>
+                        showing reviews for <%= anime_title %>
+                    </p>
+                    <% if(!reviews || reviews.length==0) { %>
+                        <p>No result found</p>
+                        <% } else { %>
+                            <ul>
+                                <% for (let review of reviews){ %>
+                                    <li>
+                                        <%= review.USERNAME %> said : <%= review.CONTENT %>
+                                                <br>
+                                                votes : <%= review.VOTES %>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                            <% } %>
+
+                                <!-- <p style="color: darkslateblue;">All Reviews</p><br>
+                            <table style="border-style:double;">
+                                <tr>
+                                    <th style="color: darkslategray; border-style: outset;">
+                                        Username</th>
+                                    <th style="color: darkslategray; border-style: outset;">
+                                        Anime Name</th>
+                                    <th style="color: darkslategray; border-style: outset;">
+                                        Review</th>
+                                    <th style="color: darkslategray; border-style: outset;">
+                                        Vote</th>
+                                </tr>
+
+                                <tr>
+                                    <td style="border-style: outset;">
+                                        <p>Ekhane character username listed hobe</p>
+                                    </td>
+                                    <td style="border-style: outset;">
+                                        <p>Ekhane anime name listed hobe</p>
+                                    </td>
+                                    <td style="border-style: outset;">
+                                        <p>Ekhane oi username oi anime er review listed hobe </p>
+                                        <button name="remove" id="remove"
+                                            onclick="return confirm('Do you really want to delete the review??');">Remove
+                                            review</button>
+                                    </td>
+
+                                    <td style="border-style: outset;">
+                                        <p class="voting">
+                                            <button name="vote" id="vote">Vote</button>
+                                            <input type="number" id="in" name="in" value="vote">
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table> -->
+
+                                <script>
+                                    document.getElementById("vote").addEventListener("click", vote);
+                                    var a = 1;
+                                    function vote() {
+                                        if (a == 1) {
+                                            document.getElementById("in").value = parseInt(document.getElementById("in").value) + 1;
+                                            return a = 0;
+                                        }
+                                        else {
+                                            document.getElementById("in").value = parseInt(document.getElementById("in").value) - 1;
+                                            return a = 1;
+                                        }
+                                    }
+                                </script>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

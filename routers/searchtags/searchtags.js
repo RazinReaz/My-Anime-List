@@ -25,6 +25,7 @@ router.get('/', async (req, res) => {
     res.render('searchtags', data);
 })
 
+
 router.post('/', async (req, res) => {
     console.log(req.body)
     let { genres, years } = req.body;

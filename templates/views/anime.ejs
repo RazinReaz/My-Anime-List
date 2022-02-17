@@ -7,6 +7,7 @@
     </title>
     <link rel="icon" href="/img/icons/mal-logo-head.png">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/test.css">
 
 </head>
 
@@ -19,47 +20,52 @@
                     <%= anime.ANIME_TITLE %>
                 </h3>
 
-                <!-- !NEW -->
-                <button type="button">Add to list++</button>
-                <!-- <form action="/rating" method="post">
-                    <select name="user_rating" id="rating">
-                        <% for (int i=1; i<=5; i++){ %>
-                            <option value=i>
-                                <%= i %>
-                            </option>
-                            <% } %>
-                    </select>
-                    <br><br>
-                    <input type="submit" value="Submit">
-                </form> -->
-
                 <div id="left">
-                    Rank
-                </div>
-                <div id="center">
-                    Average Rating
-                </div>
-                <div id="right">
-                    Stars
-                </div>
-                <p><br></p>
-                <!-- !new end -->
+                    <p style="text-align: right; color:rebeccapurple; font-size: larger;">Rate
+                    <div class="stars">
+                        <div class="star-rating">
+                            <input type="radio" id="star1"><label for="star1"></label>
+                            <input type="radio" id="star2"><label for="star2"></label>
+                            <input type="radio" id="star3"><label for="star3"></label>
+                            <input type="radio" id="star4"><label for="star4"></label>
+                            <input type="radio" id="star5"><label for="star5"></label>
+                        </div>
+                    </div>
+                    </p>
+                    <div class="rank">
+                        Rank
+                    </div>
+                    <div id="center">
+                        <div class="average-rating">
+                            Average Rating
+                        </div>
+                        <div id="right">
+                            Stars
+                        </div>
+                        <p><br></p>
 
-                <p>Synopsis : <%= anime.SYNOPSIS %>
-                </p>
-                <p>Genre :
-                    <% for (let genre of genres){ %>
-                        <!-- this might change depending on the search by genre -->
-                        <a class="genre-name" href=<%="/genre/" + genre.GENRE_NAME %> > <%=genre.GENRE_NAME %> </a>
-                        <% } %>
-                </p>
-                <p>Released : <%= anime.RELEASE_DATE %>
-                </p>
-                <p>Studio : <a href=<%="/studio/" + anime.STUDIO_NAME%>> <%= anime.STUDIO_NAME %> </a> </p>
-                <p>Writer : <a href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%= writer.FIRST_NAME %>
-                            <%= writer.LAST_NAME %> </a> </p>
-    </div>
-    <%- include('../partials/footer.ejs') %>
+                        <p><br><br></p>
+
+
+
+                        <p>Synopsis : <%= anime.SYNOPSIS %>
+                        </p>
+                        <p>Genre :
+                            <% for (let genre of genres){ %>
+                                <!-- this might change depending on the search by genre -->
+                                <a class="listed" href=<%="/genre/" + genre.GENRE_NAME %> > <%=genre.GENRE_NAME %> </a>
+                                <% } %>
+                        </p>
+                        <p>Released : <%= anime.RELEASE_DATE %>
+                        </p>
+                        <p>Studio : <a class="listed" href=<%="/studio/" + anime.STUDIO_NAME%>> <%= anime.STUDIO_NAME %>
+                            </a>
+                        </p>
+                        <p>Writer : <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%=
+                                    writer.FIRST_NAME %>
+                                    <%= writer.LAST_NAME %> </a> </p>
+                    </div>
+                    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

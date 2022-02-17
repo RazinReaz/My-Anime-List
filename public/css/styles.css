@@ -27,6 +27,7 @@ h1 {
     margin-bottom: 16px;
 }
 
+
 header a {
     color: #888888;
     margin-right: 16px;
@@ -48,7 +49,13 @@ button {
 }
 
 a.listed {
-    color: #8a2be2;
+    color: #844ff8;
+    font-weight: bold;
+    padding: 6px;
+    text-decoration: none;
+}
+a.favourited {
+    color: #f35858;
     padding: 6px;
     text-decoration: none;
 }
