@@ -8,3 +8,40 @@
     color:navy;
     font-weight: bold;
 }
+.anime-rank ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.anime-rank ul li{
+    float: left;
+    width: 150px;
+    height: 40px;
+    background-color: blueviolet;
+    color: wheat;
+    opacity: 0.9;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid white;
+}
+.anime-rank ul li input{
+    width: 150px;
+    height: 40px;
+    background-color: blueviolet;
+    color: white;
+    font-weight: bolder;
+    font-style: oblique;
+}
+.anime-rank ul li input:hover{
+    background-color: rgb(133, 58, 73);
+}
+.anime-rank ul li:hover{
+    background-color: crimson
+}
+.anime-rank ul li ul li{
+    display: none;
+}
+.anime-rank ul li:hover ul li{
+    display:block;
+}

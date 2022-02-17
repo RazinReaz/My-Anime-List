@@ -5,6 +5,7 @@
     <title><%= anime.ANIME_TITLE %></title>
     <link rel="icon" href="/img/icons/mal-logo-head.png">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/new.css">
 
 </head>
 
@@ -14,31 +15,33 @@
         <!-- {{!-- get the jpg image and anime title from sent data  --}} -->
         <img src= <%= "/img/anime_pic/"+anime.ANIME_ID + ".jpg" %> alt= <%= anime.ANIME_TITLE + "image" %> >
         <p>
-            <button style="color: lightslategrey;">Add to list++</button>
+            <button style="color: lightslategrey;" id="btn" onclick="change()">Add to list++</button>
+            <% function change(){ %>
+                <% document.getElementById("btn").textContent="Added";%>
+            <% } %>    
+
             <span style="float: right;color:royalblue;">
                  Members ekhane 
             </span>
         </p>    
             <br>
         <h3 class = "anime-title" > <%= anime.ANIME_TITLE %></h3>
-        <p style="text-align: right; color:rebeccapurple; font-size: larger;">Rate 
-        <div class="stars">
-            <div class="star-rating">
-                <input type="radio" id="star1"><label for="star1"></label>
-                <input type="radio" id="star2"><label for="star2"></label>
-                <input type="radio" id="star3"><label for="star3"></label>
-                <input type="radio" id="star4"><label for="star4"></label>
-                <input type="radio" id="star5"><label for="star5"></label>
-            </div>
+        <div class="anime-rank">
+            <ul>
+                <li>Popularity</li>
+                <li>Rating</li>
+                <li><label for="rate">Rate</label>
+                    <ul>
+                        <li><input type="button" id="1" value="Masterpiece" ></li>
+                        <li><input type="button" id="2" value="Very Good" ></li>
+                        <li><input type="button" id="3" value="Average"></li>
+                        <li><input type="button" id="4" value="Bad"></li>
+                        <li><input type="button" id="5" value="Horrible"></li>
+                    </ul>
+                </li>
+                <li><input type="text" id="rate" value="Rating"></li>
+            </ul>
         </div>
-        </p>
-        <div class="rank">
-            Rank
-        </div>
-        <div class="average-rating">
-            Average Rating
-        </div>
-        
         
         <p><br><br></p>
         <p>Synopsis : <%= anime.SYNOPSIS %></p>

@@ -26,100 +26,40 @@ h1 {
     font-size: 64px;
     margin-bottom: 16px;
 }
+header ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+header ul li{
+  float: left;
+  width: 100px;
+  height: 40px;
+  background-color:black;
+  opacity: 0.9;
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+}
+header ul li a{
+  text-decoration: none;
+  color: whitesmoke;
+  display: block;
+}
+header ul li a:hover{
+  background-color:crimson;
+  color:rgb(1, 175, 255);
+}
+header ul li ul li{
+  display: none;
+}
+header ul li:hover ul li{
+  display: block;
+  background-color:indigo;
+}
 
 * {
   box-sizing: border-box;
 }
 
-/* Style the search field */
-form.Search input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 50%;
-  background:cornsilk;
-}
-
-/* Style the submit button */
-form.Search button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background:lightcoral;
-  color:crimson;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
-
-form.Search button:hover {
-  background:brown;
-}
-
-/* Clear floats */
-form.Search::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-.rank {
-  color: darkgreen;
-  float: left;
-  text-align: left;
-  padding-right: 10px;
-}
-
-.average-rating {
-  color:crimson;
-  text-align: center;
-}
-
-.stars {
-  float: right;
-  text-align:right;
-  padding-left: 10px;
-}
-.star-rating{
-  direction: rtl;
-}
-.star-rating input{
-  display: none;
-}
-.star-rating label{
-  display: inline-block;
-  width: 10px;
-  position: relative;
-  cursor: pointer;
-}
-.star-rating label:before{
-  content: "\2605";
-  position: absolute;
-  font-size: 30px;
-  display: inline-block;
-  top:0;
-  left: 0;
-}
-.star-rating label:after{
-  content: "\2605";
-  position: absolute;
-  font-size: 30px;
-  display: inline-block;
-  top:0;
-  left: 0;
-  color:greenyellow;
-  opacity: 0;
-}
-.star-rating label:hover:after,
-.star-rating label:hover~label:after,
-.star-rating input:checked~label:after
-{
-  opacity: 1;
-}
-
-header a {
-    color: #888888;
-    margin-right: 16px;
-    text-decoration: none;  /* removes the underline in links */
-}
