@@ -3,7 +3,16 @@ const database = require('./database')
 
 async function getAnimeByID(anime_id) {
     let sql = `
-        SELECT * 
+        SELECT 
+            ANIME_ID, 
+            ANIME_TITLE, 
+            SYNOPSIS, 
+            PICTURE_ID, 
+            TO_CHAR(RELEASE_DATE,'YYYY') AS YEAR, 
+            RELEASE_SEASON, 
+            STUDIO_NAME,
+            WRITER, 
+            AVG_RATING  
         FROM ANIME 
         WHERE ANIME_ID = :ANIME_ID
     `

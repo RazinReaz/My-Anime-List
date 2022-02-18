@@ -37,74 +37,45 @@
                             </form>
                         </div>
 
-                        <% var confirmText="Your review \" " + userReviewContent+ " \" will be deleted" %>
-                            <script>
-                                var a = 0;
-                                function openReview() {
-                                    if (a == 1) {
-                                        document.getElementById("myReview").style.display = "none";
-                                        return a = 0;
-                                    } else {
-                                        document.getElementById("myReview").style.display = "block";
-                                        return a = 1;
-                                    }
-                                }
-                                var b = 0
-                                function openVoteForm() {
-                                    if (b == 1) {
-                                        document.getElementById("vote").style.display = "none";
-                                        return b = 0;
-                                    } else {
-                                        document.getElementById("vote").style.display = "block";
-                                        return b = 1;
-                                    }
-                                }
+                        <% } %>
+                            <p>
+                                showing reviews for <%= anime_title %>
+                            </p>
+                            <% if(!reviews || reviews.length==0) { %>
+                                <p>No result found</p>
+                                <% } else { %>
+                                    <ul>
+                                        <% for (let review of reviews){ %>
+                                            <li>
+                                                <p>
+                                                    <%= review.USERNAME %> said : <%= review.CONTENT %>
+                                                </p>
+                                                <p> votes : <%= review.VOTES %>
+                                                </p>
+                                                <% if(isAuth) { %>
+                                                    <div class="user-vote-popup" id="vote">
+                                                        <form method="post" action=<%="/anime/" + anime_id + "/reviews/"
+                                                            + review.REVIEW_ID + "/vote" %>>
+                                                            <input type="hidden" name="username" value=<%=username %> >
+                                                            <input type="hidden" name="review_id"
+                                                                value=<%=review.REVIEW_ID %> >
+                                                            <input type="hidden" name="vote_comment" value="">
+                                                            <input type="hidden" name="vote_type"
+                                                                value=<%=review.USERNAME_1==username ? -1 : 1 %>>
+                                                            <!-- !button will show upvote if not voted, downvote if already voted -->
+                                                            <button type="submit">
+                                                                <%= review.USERNAME_1==username ? 'Downvote' : 'Upvote'
+                                                                    %>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                    <% } %>
+                                            </li>
+                                            <% } %>
+                                    </ul>
+                                    <% } %>
 
-                                function removeReview() {
-                                    return confirm("your review will be deleted");
-                                }
-                            </script>
-
-                            <% } %>
-                                <p>
-                                    showing reviews for <%= anime_title %>
-                                </p>
-                                <% if(!reviews || reviews.length==0) { %>
-                                    <p>No result found</p>
-                                    <% } else { %>
-                                        <ul>
-                                            <% for (let review of reviews){ %>
-                                                <li>
-                                                    <p>
-                                                        <%= review.USERNAME %> said : <%= review.CONTENT %>
-                                                    </p>
-                                                    <p> votes : <%= review.VOTES %>
-                                                    </p>
-                                                    <% if(isAuth) { %>
-                                                        <div class="user-vote-popup" id="vote">
-                                                            <form method="post" action=<%="/anime/" + anime_id
-                                                                + "/reviews/" + review.REVIEW_ID + "/vote" %>>
-                                                                <input type="hidden" name="username" value=<%=username
-                                                                    %> >
-                                                                <input type="hidden" name="review_id"
-                                                                    value=<%=review.REVIEW_ID %> >
-                                                                <input type="hidden" name="vote_comment" value="">
-                                                                <input type="hidden" name="vote_type"
-                                                                    value=<%=review.USERNAME_1==username ? -1 : 1 %>>
-                                                                <!-- !button will show upvote if not voted, downvote if already voted -->
-                                                                <button type="submit">
-                                                                    <%= review.USERNAME_1==username ? 'Downvote'
-                                                                        : 'Upvote' %>
-                                                                </button>
-                                                            </form>
-                                                        </div>
-                                                        <% } %>
-                                                </li>
-                                                <% } %>
-                                        </ul>
-                                        <% } %>
-
-                                            <!-- <p style="color: darkslateblue;">All Reviews</p><br>
+                                        <!-- <p style="color: darkslateblue;">All Reviews</p><br>
                             <table style="border-style:double;">
                                 <tr>
                                     <th style="color: darkslategray; border-style: outset;">
@@ -140,21 +111,45 @@
                                 </tr>
                             </table> -->
 
-                                            <script>
-                                                document.getElementById("vote").addEventListener("click", vote);
-                                                var a = 1;
-                                                function vote() {
-                                                    if (a == 1) {
-                                                        document.getElementById("in").value = parseInt(document.getElementById("in").value) + 1;
-                                                        return a = 0;
-                                                    }
-                                                    else {
-                                                        document.getElementById("in").value = parseInt(document.getElementById("in").value) - 1;
-                                                        return a = 1;
-                                                    }
-                                                }
-                                            </script>
     </div>
+    <script>
+        var a = 0;
+        function openReview() {
+            if (a == 1) {
+                document.getElementById("myReview").style.display = "none";
+                return a = 0;
+            } else {
+                document.getElementById("myReview").style.display = "block";
+                return a = 1;
+            }
+        }
+        var b = 0
+        function openVoteForm() {
+            if (b == 1) {
+                document.getElementById("vote").style.display = "none";
+                return b = 0;
+            } else {
+                document.getElementById("vote").style.display = "block";
+                return b = 1;
+            }
+        }
+
+        function removeReview() {
+            return confirm("your review will be deleted");
+        }
+        document.getElementById("vote").addEventListener("click", vote);
+        var a = 1;
+        function vote() {
+            if (a == 1) {
+                document.getElementById("in").value = parseInt(document.getElementById("in").value) + 1;
+                return a = 0;
+            }
+            else {
+                document.getElementById("in").value = parseInt(document.getElementById("in").value) - 1;
+                return a = 1;
+            }
+        }
+    </script>
     <%- include('../partials/footer.ejs') %>
 </body>
 

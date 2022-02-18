@@ -26,7 +26,6 @@ router.get('/:studio_name', async (req, res) => {
     const studio = await DB_studio.getStudioByName(studio_name);
     const animes = await DB_studio.getAnimesByStudio(studio_name);
     //error checking
-    console.log(studio)
     if (!studio) {
         return res.redirect('/error');
     }

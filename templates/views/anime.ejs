@@ -20,38 +20,22 @@
                     <%= anime.ANIME_TITLE %>
                 </h3>
 
-                <div id="left">
-                    <p style="text-align: right; color:rebeccapurple; font-size: larger;">Rate
-                    <div class="stars">
-                        <div class="star-rating">
-                            <input type="radio" id="star1"><label for="star1"></label>
-                            <input type="radio" id="star2"><label for="star2"></label>
-                            <input type="radio" id="star3"><label for="star3"></label>
-                            <input type="radio" id="star4"><label for="star4"></label>
-                            <input type="radio" id="star5"><label for="star5"></label>
-                        </div>
-                    </div>
-                    </p>
-                    <div class="rank">
-                        Rank
-                    </div>
-                    <div id="center">
-                        <div class="average-rating">
-                            Average Rating
-                        </div>
-                        <div id="right">
-                            Stars
-                        </div>
-                        <p><br></p>
-
-                        <p><br><br></p>
+                <!-- !for adding to watchlist button -->
+                <% if(isAuth) { %>
+                    <form method="post" action=<%="/user/" + username + "/watchlist/add" %>>
+                        <input type="hidden" name="username" value=<%=username %> >
+                        <input type="hidden" name="anime_id" value=<%=anime.ANIME_ID %> >
+                        <input type="hidden" name="type" value=<%=isAddedToWatchlist ? (isAddedToFavouriteList
+                            ? 'unfavourite' : 'favourite' ) : 'add' %>>
+                        <button type="submit">
+                            <%= isAddedToWatchlist ? (isAddedToFavouriteList ? 'Favourited' : 'Add to favourites' )
+                                : 'Add to watchlist' %>
+                        </button>
+                    </form>
+                    <% } %>
 
 
-                        <a href=<%="/anime/" + anime.ANIME_ID + "/reviews/" %> >
-                            <button>
-                                Reviews
-                            </button>
-                        </a>
+                        <a href=<%="/anime/" + anime.ANIME_ID + "/reviews/" %> ><button>Reviews</button></a>
 
                         <p>Synopsis : <%= anime.SYNOPSIS %>
                         </p>
@@ -61,16 +45,19 @@
                                 <a class="listed" href=<%="/genre/" + genre.GENRE_NAME %> > <%=genre.GENRE_NAME %> </a>
                                 <% } %>
                         </p>
-                        <p>Released : <%= anime.RELEASE_DATE %>
+                        <p>Released : <%= anime.YEAR %>
+                                <%= anime.RELEASE_SEASON %>
                         </p>
-                        <p>Studio : <a class="listed" href=<%="/studio/" + anime.STUDIO_NAME%>> <%= anime.STUDIO_NAME %>
-                            </a>
-                        </p>
-                        <p>Writer : <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%=
-                                    writer.FIRST_NAME %>
-                                    <%= writer.LAST_NAME %> </a> </p>
-                    </div>
-                    <%- include('../partials/footer.ejs') %>
+
+                        <% studioURL=encodeURIComponent(anime.STUDIO_NAME) %>
+                            <p>Studio : <a class="listed" href=<%="/studio/" + studioURL%>> <%= anime.STUDIO_NAME %>
+                                </a>
+                            </p>
+                            <p>Writer : <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%=
+                                        writer.FIRST_NAME %>
+                                        <%= writer.LAST_NAME %> </a> </p>
+    </div>
+    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

@@ -1,13 +1,14 @@
 AFTER LOGIN AGER PAGE
-EJS FORMATTING
-WATCHLIST ER KAJ (ADDED FAVOURITIED ATTRIBUTE)
+WATCHLIST ER KAJ (TEST IF TRIGGER WORKS)
+YEAR AND SEASON
 CHARACTER PAGES
 PERSONNEL PAGES
+EPISODES LIST
 
 
 
 [TEST]
-USER AUTHENTICATION TEST    
+USER AUTHENTICATION TEST (ID ve id)
 SEARCH BY TAG TEST
 TRIGGER FINALIZE
 STUDIO.EJS HOILE TEST
@@ -22,12 +23,11 @@ GENRE PAGE
 STUDIO AND STUDIOS PAGE
 ANIME STAR PROCEDURE
 FAVOURITED
-WRITE AND UPDATE REVIEW
+WRITE, UPDATE, DELETE REVIEW AND VOTE
 
 
 ISSUES
-DELET KORTE PARTESENA FROM REVIEW KARON ON DELETE CASCADE
-update and delete jana lagbe
+
 
 
 JODI TEL THAKE
@@ -36,7 +36,6 @@ CSS CLASSES AND OTHERS
 IMAGES
 
 BACKEND
-listener event js function
 
 
 FRONTEND
@@ -58,8 +57,8 @@ DATABASE
 
 
 FEATURES
-{DONE} post review, edit review, vote review
-add to list, remove from list (triggers the users recommendation)
+[DONE] post review, edit review, vote review
+[TESTING] add to list, remove from list (triggers the users recommendation)
 Get recommendation
 Popular anime's of the season
 Newly released anime

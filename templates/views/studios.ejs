@@ -15,7 +15,7 @@
             <ul>
                 <% for (let studio of studios){ %>
                     <% studioURL=encodeURIComponent(studio.STUDIO_NAME) %>
-                        <li> <a class="listed-studio" href=<%="/studio/" + studioURL %> %> >
+                        <li> <a class="listed" href=<%="/studio/" + studioURL %> %> >
                                 <%= studio.STUDIO_NAME %>
                             </a>
                         </li>

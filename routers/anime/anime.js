@@ -1,15 +1,21 @@
 const express = require('express')
 const DB_anime = require('../../DB_codes/DB_anime')
 const DB_review = require('../../DB_codes/DB_review')
+const DB_watchlist = require('../../DB_codes/DB_watchlist')
 const router = express.Router({ mergeParams: true })
 
 // /anime router
 router.get('/:anime_id', async (req, res) => {
-    const anime_id = req.params.anime_id
+    const anime_id = req.params.anime_id;
+    const username = req.session.userid;
 
-    const anime = await DB_anime.getAnimeByID(anime_id)
-    const genres = await DB_anime.getGenresByID(anime_id)
-    const writer = await DB_anime.getWriterByID(anime.WRITER)
+    const anime = await DB_anime.getAnimeByID(anime_id);
+    const genres = await DB_anime.getGenresByID(anime_id);
+    const writer = await DB_anime.getWriterByID(anime.WRITER);
+
+    const watchlistData = await DB_watchlist.getWatchlistRowOfUserAndAnime(username, anime_id);
+    const isAddedToWatchlist = watchlistData ? true : false;
+    const isAddedToFavouriteList = (isAddedToWatchlist && watchlistData.FAVOURITED == 1) ? true : false;
 
     const data = {
         pageTitle: 'Anime',
@@ -18,7 +24,11 @@ router.get('/:anime_id', async (req, res) => {
 
         anime,
         genres,
-        writer
+        writer,
+
+        watchlistData,
+        isAddedToWatchlist,
+        isAddedToFavouriteList
     }
     res.render('anime', data)
 })
@@ -66,7 +76,6 @@ router.post('/:anime_id/reviews', async (req, res) => {
     if (!userReview) {
 
         const inserted_review_id = await DB_review.insertReview(reviewContent); //This line inserts the new review. reID returns the REVIEW_ID of the new row
-        console.log(inserted_review_id);
         const handle_reviewed = await DB_review.insertIntoReviewRelation(user, anime_id, inserted_review_id)
 
     } else if (userReview) {
@@ -84,9 +93,7 @@ router.post('/:anime_id/reviews/delete', async (req, res) => {
     const { username, anime_id } = req.body;
 
     const remove_review_id = await DB_review.removeReviewFromReviewed(username, anime_id);
-    //console.log(remove_review_id)
     const remove_review = await DB_review.removeReview(remove_review_id);
-    //console.log(remove_review);
 
     res.redirect('/anime/' + anime_id + '/reviews');
 })
