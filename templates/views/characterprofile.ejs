@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Character Profile</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body>
+    <div class="main-content">
+        <%- include('../partials/header.ejs') %>
+            <h3>
+                <%= character.chracter_name %>
+            </h3>
+            <p>Age : <%= character.Age %>
+            </p>
+            <p>Description : <%= character.description %>
+            </p>
+            <P>Role : <%= character.role %></P>
+            <p>Voice Actor: <%= character.voice_actor %></p>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>
