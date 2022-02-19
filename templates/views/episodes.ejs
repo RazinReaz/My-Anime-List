@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Episodes</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="main-content">
+        <%- include('../partials/header.ejs') %>
+        <a name="season1"></a>
+        <p style="font-size: larger;font-weight: bolder;">Season-01:::::::::::::::
+            <a href="#season2">Season-02</a>:::::::::::::::
+            <a href="#season3">Season-03</a>
+        </p>
+        <p>Ekhane season 1 er episodelist</p>
+        <p style="color:rgb(37, 37, 87); font-weight: bold;">Episodes of <%= Season %></p>
+            <ul>
+                <% for (let anime of animes){ %>
+                    <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= Episdode_number %>: : :<%= Episode_TITLE %> </a>
+                    </li>
+                <% } %>
+            </ul>
+            <br/>
+            <br/>
+            <br/>
+            <p>Ekhane season 2 er episodelist</p>
+        <a name="season2"></a>
+        <p><a href="#season1" >Season-01</a>:::::::::::::::
+            <a href="#season2">Season-02</a>:::::::::::::::
+            <a href="#season3">Season-03</a>
+        </p>
+        <p style="color:rgb(37, 37, 87); font-weight: bold;">Episodes of <%= Season %></p>
+            <ul>
+                <% for (let anime of animes){ %>
+                    <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= Episdode_number %>: : :<%= Episode_TITLE %> </a>
+                    </li>
+                <% } %>
+            </ul>
+            <br/>
+            <br/>
+            <br/>
+            <p>Ekhane season 3 er episodelist</p>
+
+
+        <a name="season3"></a>
+        <p><a href="#season1" >Season-01</a>:::::::::::::::
+            <a href="#season2">Season-02</a>:::::::::::::::
+            <a href="#season3">Season-03</a>
+        </p>
+        <p style="color:rgb(37, 37, 87); font-weight: bold;">Episodes of <%= Season %></p>
+            <ul>
+                <% for (let anime of animes){ %>
+                    <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= Episdode_number %>: : :<%= Episode_TITLE %> </a>
+                    </li>
+                <% } %>
+            </ul>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>
