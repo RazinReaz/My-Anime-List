@@ -1,18 +1,30 @@
 <header>
-    <h1>
-        <%= pageTitle %>
-    </h1>
-    <a href="/">Home</a>
-    <a href="/animelist">Animelist</a>
-    <a href="/user/" + <%=username%> >Profile</a>
+    <h1> <%= pageTitle %> </h1>
+    <ul> 
+        <li><a href="/">Home</a></li>
+        <li><a href="/animelist">Animelist</a>
+            <ul>
+              <li><a href="/searchtags">Tags</a></li>
+              <li><a href="/genre">Genres</a></li>
+              <li><a href="/studio">Studios</a></li>
+              <li><a href="/writer">Writer</a></li>
+              
+            </ul>
+        </li>
+        <li><a href="/user/" + <%=username%> >Profile</a></li>
+    </ul> 
+    <br><br> 
+      
+        
     <span style="float: right;">
         <a href="/login">Login</a>
         <a href="/register">Register</a>
         <a href="/logout">Logout</a>
     </span>
-    <!-- !post korlam -->
-    <form class="search-bar" action="/searchresults" method="post">
+    <br>
+          
+    <form class="search-bar" action="/searchresults" method="post" style="text-align: right;">
         <input class="search-bar" type="text" placeholder="Search for anything" name="search">
         <button type="submit">Search</button>
-    </form>
-</header>
+    </form>    
+    </header> 
