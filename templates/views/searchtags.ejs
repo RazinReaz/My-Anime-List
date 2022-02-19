@@ -14,7 +14,7 @@
 
             <!-- if there is no search result -->
             <% if( typeof animes !=="undefined" ) { %>
-                <p>Search results</p>
+                <p style="color: rgb(37, 37, 87); font-weight: bolder;">Search results</p>
                 <ul>
                     <% for (let anime of animes){ %>
                         <li> <a class="listed-anime" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %>
@@ -26,7 +26,7 @@
 
 
                     <form action="/searchtags" method="post">
-                        <h3>Select tags you want to search</h3>
+                        <h3 style="color: rgb(37, 37, 87);">Select tags you want to search</h3>
                         <div>
                             <% for (let genre of genres){ %>
                                 <input class="tags-genre" type="checkbox" id="tag[]" name="genres"
@@ -36,7 +36,7 @@
                                 </label><br>
                                 <% } %>
                         </div>
-                        <h3>Select year you want to search</h3>
+                        <h3 style="color: rgb(37, 37, 87);">Select year you want to search</h3>
                         <div>
                             <% for (let year of years){ %>
                                 <input class="tags-year" type="checkbox" id="yr" name="years" value=<%=year %> >
@@ -45,7 +45,8 @@
                                 </label><br>
                                 <% } %>
                         </div>
-                        <input type="submit" value="Search">
+                        <br>
+                        <input type="submit" value="Search" style="background-color: rgb(161, 161, 204);">
                     </form>
 
 

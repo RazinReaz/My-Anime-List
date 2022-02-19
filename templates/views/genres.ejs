@@ -11,7 +11,7 @@
 <body>
     <div class="main-content">
         <%- include('../partials/header.ejs') %>
-            <p>This is the genre list page</p>
+            <p style="color: rgb(37, 37, 87); font-weight: bolder;">Genre list:::</p>
             <ul>
                 <% for (let genre of genres){ %>
                     <li> <a class="listed-genre" href=<%="/genre/" + genre.GENRE_NAME %> > <%= genre.GENRE_NAME %> </a>

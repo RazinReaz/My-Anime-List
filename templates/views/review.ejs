@@ -13,15 +13,16 @@
         <%- include('../partials/header.ejs') %>
             <br>
             <% if(isAuth) { %>
-                <button class="open-review" onclick="openReview()"> Write/Edit review</button>
-
+                <button class="open-review" onclick="openReview()" style="background-color: rgb(18, 18, 122);"> Write/Edit review</button>
+                <br>
+                <br>
 
                 <% if(userReview) { %>
                     <!-- this button will show if the logged in user reviewed this anime -->
                     <form action=<%="/anime/" + anime_id + "/reviews/delete" %> method="post">
                         <input type="hidden" name="username" value=<%=username %>>
                         <input type="hidden" name="anime_id" value=<%=anime_id %>>
-                        <button type="submit" onclick="return removeReview()">Remove review</button>
+                        <button type="submit" onclick="return removeReview()" style="background-color: rgb(153, 98, 101);">Remove review</button>
                     </form>
                     <% } %>
                         <br>
@@ -33,13 +34,13 @@
                                 <input type="hidden" name="username" value=<%=username %> >
                                 <input type="hidden" name="anime_id" value=<%=anime_id%>>
                                 <br>
-                                <button type="submit"> Post </button>
+                                <button type="submit" style="background-color: rgb(60, 33, 112);"> Post </button>
                             </form>
                         </div>
 
                         <% } %>
-                            <p>
-                                showing reviews for <%= anime_title %>
+                            <p style="font-weight: bolder; color: rgb(64, 64, 124);">
+                                Reviews for <%= anime_title %>
                             </p>
                             <% if(!reviews || reviews.length==0) { %>
                                 <p>No result found</p>
@@ -47,10 +48,10 @@
                                     <ul>
                                         <% for (let review of reviews){ %>
                                             <li>
-                                                <p>
-                                                    <%= review.USERNAME %> said : <%= review.CONTENT %>
+                                                <p><span style="color: rgb(37, 37, 87); font-weight: 700;">
+                                                    <%= review.USERNAME %> said :</span> <%= review.CONTENT %>
                                                 </p>
-                                                <p> votes : <%= review.VOTES %>
+                                                <p> <span style="color: rgb(37, 37, 87); font-weight: 700;">Votes </span> : <%= review.VOTES %>
                                                 </p>
                                                 <% if(isAuth) { %>
                                                     <div class="user-vote-popup" id="vote">
@@ -63,7 +64,7 @@
                                                             <input type="hidden" name="vote_type"
                                                                 value=<%=review.USERNAME_1==username ? -1 : 1 %>>
                                                             <!-- !button will show upvote if not voted, downvote if already voted -->
-                                                            <button type="submit">
+                                                            <button type="submit" style="background-color: rgb(98, 103, 131);">
                                                                 <%= review.USERNAME_1==username ? 'Downvote' : 'Upvote'
                                                                     %>
                                                             </button>
@@ -75,41 +76,7 @@
                                     </ul>
                                     <% } %>
 
-                                        <!-- <p style="color: darkslateblue;">All Reviews</p><br>
-                            <table style="border-style:double;">
-                                <tr>
-                                    <th style="color: darkslategray; border-style: outset;">
-                                        Username</th>
-                                    <th style="color: darkslategray; border-style: outset;">
-                                        Anime Name</th>
-                                    <th style="color: darkslategray; border-style: outset;">
-                                        Review</th>
-                                    <th style="color: darkslategray; border-style: outset;">
-                                        Vote</th>
-                                </tr>
-
-                                <tr>
-                                    <td style="border-style: outset;">
-                                        <p>Ekhane character username listed hobe</p>
-                                    </td>
-                                    <td style="border-style: outset;">
-                                        <p>Ekhane anime name listed hobe</p>
-                                    </td>
-                                    <td style="border-style: outset;">
-                                        <p>Ekhane oi username oi anime er review listed hobe </p>
-                                        <button name="remove" id="remove"
-                                            onclick="return confirm('Do you really want to delete the review??');">Remove
-                                            review</button>
-                                    </td>
-
-                                    <td style="border-style: outset;">
-                                        <p class="voting">
-                                            <button name="vote" id="vote">Vote</button>
-                                            <input type="number" id="in" name="in" value="vote">
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table> -->
+                                        
 
     </div>
     <script>

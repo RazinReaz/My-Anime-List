@@ -10,7 +10,7 @@
 <body>
     <div class="main-content">
         <%- include('../partials/header.ejs') %>
-            <p>Showing results of <%= genre_name %> genre </p>
+            <p style="color:rgb(37, 37, 87);font-weight: 700;">Showing results of <%= genre_name %> genre </p>
             <ul>
                 <% for (let anime of animes){ %>
                     <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a>

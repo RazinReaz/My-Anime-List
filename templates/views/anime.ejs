@@ -16,7 +16,7 @@
         <%- include('../partials/header.ejs') %>
             <!-- {{!-- get the jpg image and anime title from sent data  --}} -->
             <img src=<%="/img/anime_pic/" +anime.ANIME_ID + ".jpg" %> alt= <%= anime.ANIME_TITLE + "image" %> >
-                <h3 class="anime-title">
+                <h3 class="anime-title" style="font-size: x-large; color: rgb(11, 11, 112);">
                     <%= anime.ANIME_TITLE %>
                 </h3>
 
@@ -35,27 +35,38 @@
                     <% } %>
 
 
-                        <a href=<%="/anime/" + anime.ANIME_ID + "/reviews/" %> ><button>Reviews</button></a>
+                        <!--<a href=<%="/anime/" + anime.ANIME_ID + "/reviews/" %> ><button>Reviews</button></a>-->
 
-                        <p>Synopsis : <%= anime.SYNOPSIS %>
+                        <p><span style="color:rgb(37, 37, 87);font-weight: 700;">Synopsis </span> : <%= anime.SYNOPSIS %>
                         </p>
-                        <p>Genre :
+                        <p><span style="color: rgb(37, 37, 87); font-weight: 700;">Genre </span> :
                             <% for (let genre of genres){ %>
                                 <!-- this might change depending on the search by genre -->
                                 <a class="listed" href=<%="/genre/" + genre.GENRE_NAME %> > <%=genre.GENRE_NAME %> </a>
                                 <% } %>
                         </p>
-                        <p>Released : <%= anime.YEAR %>
+                        <p><span style="color: rgb(37, 37, 87); font-weight: 700;">Released </span> : <%= anime.YEAR %>
                                 <%= anime.RELEASE_SEASON %>
                         </p>
 
                         <% studioURL=encodeURIComponent(anime.STUDIO_NAME) %>
-                            <p>Studio : <a class="listed" href=<%="/studio/" + studioURL%>> <%= anime.STUDIO_NAME %>
+                            <p><span style="color: rgb(37, 37, 87); font-weight: 700;">Studio </span>: <a class="listed" href=<%="/studio/" + studioURL%>> <%= anime.STUDIO_NAME %>
                                 </a>
                             </p>
-                            <p>Writer : <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%=
+                            <p><span style="color: rgb(37, 37, 87); font-weight: 700;">Writer</span> : <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%=
                                         writer.FIRST_NAME %>
-                                        <%= writer.LAST_NAME %> </a> </p>
+                                        <%= writer.LAST_NAME %> 
+                                    </a> 
+                            </p>
+                            <br>
+                            <p><a href=<%="/anime/" + anime.ANIME_ID + "/episodes/" %> ><button style="background-color: rgb(37, 37, 87);">Go to Episodes</button></a> </p>
+                                        <br>
+                                        <br>
+        <a href=<%="/anime/" + anime.ANIME_ID + "/reviews/" %> ><button style="background-color: rgb(87, 87, 161);">Reviews</button></a>
+        <br>
+        <br>
+        <p style="color: rgb(37, 37, 87); font-weight: 900;">Character & Role  ::::::::::::::::::::::::::::::::::> Voice Actor</p>
+    
     </div>
     <%- include('../partials/footer.ejs') %>
 </body>
