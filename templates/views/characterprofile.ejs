@@ -11,15 +11,15 @@
 <body>
     <div class="main-content">
         <%- include('../partials/header.ejs') %>
-            <h3>
+            <h3 style="color: rgb(7, 7, 122);">
                 <%= character.chracter_name %>
             </h3>
-            <p>Age : <%= character.Age %>
+            <p style="color: rgb(117, 3, 112);">Age :<span style="font-weight: bolder;color: black;"> <%= character.Age %></span>
             </p>
-            <p>Description : <%= character.description %>
+            <p style="color: rgb(74, 6, 80);">Description :<span style="font-weight: bolder;color: black;"><%= character.description %></span>
             </p>
-            <P>Role : <%= character.role %></P>
-            <p>Voice Actor: <%= character.voice_actor %></p>
+            <P style="color: rgb(99, 19, 102);">Role :<span style="font-weight: bolder;color: black;"> <%= character.role %></span></P>
+            <p style="color: rgb(58, 2, 63);">Voice Actor:<span style="font-weight: bolder;color: black;"> <%= character.voice_actor %></span></p>
     </div>
     <%- include('../partials/footer.ejs') %>
 </body>
