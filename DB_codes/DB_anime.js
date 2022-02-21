@@ -126,7 +126,6 @@ async function getAnimesTitleandIDByOneGenre(genre) {
 
 
 
-
 async function updateAnimeRating(anime_id) {
     let sql = `
     BEGIN

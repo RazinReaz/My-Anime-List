@@ -1,11 +1,4 @@
 
-AFTER LOGIN AGER PAGE
-YEAR AND SEASON
-
-
-
-[TEST]
-SEARCH BY TAG TEST
 
 
 [DONE LIST]
@@ -23,10 +16,6 @@ PERSONNEL, EPISODES, CHARACTERS
 
 
 
-ISSUES
-
-
-
 JODI TEL THAKE
 PARTIALS FOR ANIME LIST, PERSONNEL, CHARACTER
 ERROR MESSAGES
@@ -35,7 +24,6 @@ MAL THEKE INSPECT
 CSS CLASSES AND OTHERS
 
 BACKEND
-
 
 FRONTEND
 HOME PAGE EDIT
@@ -47,34 +35,14 @@ buttons
 
 
 DATABASE
-    trigger for stars
     api theke insert??
-    unique id generation 
-        FOR PERSONNEL
-    pictureid insertion
 
 
 FEATURES
 [DONE] post review, edit review, vote review
-[TESTING] add to list, remove from list (triggers the users recommendation)
-Get recommendation
-Popular anime's of the season
-Newly released anime
-[DONE]search by tags
+[DONE] add to list, remove from list (triggers the users recommendation)
+[DONE] Get recommendation
+[DONE] Popular anime's of the season
+[DONE] Newly released anime
+[DONE] Search by tags
 
-
-
-triggers
-    INSERT TRIGGERS FOR THE
-        [DONE] REVIEWED RELATION : IF REVIEW ENTERED THEN REVIEWD WILL BE FILLED UP
-        [DONE BUT LED TO ERROR, HANDLED IN BACKEND] IF VOTED ON A REVIEW, THE VOTES ATTRIBUTE OF REVIEW WILL INCREASE
-        PERSONNEL TO WRITER(GENRE SPECIALIZATION) AND VOICE ACTORS(ROLE SPECIALIZATION)
-        IF STARRED ON ANIME UPDATE THE RATING OF THE ANIME [ COULD BE DONE IN BACKEND AS WELL]
-    [DONE] if added to list, insert into preference/update counter +0.5
-    [DONE] if removed from list, update counter -0.5
-
-    [DONE] this could be for star/ review as well. counter increment = rating / 2 -1.5
-
-    if starred on an anime, update anime rating field avg value of all ratings OF THAT ANIME.. star/5.. 
-    avg doesnt count null values in oracle avg(com_pct) = sum/count(com_pct)..
-    so we can fetch the rating of the episodes as well.
