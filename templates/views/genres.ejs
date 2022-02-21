@@ -14,7 +14,7 @@
             <p>This is the genre list page</p>
             <ul>
                 <% for (let genre of genres){ %>
-                    <li> <a class="listed-genre" href=<%="/genre/" + genre.GENRE_NAME %> > <%= genre.GENRE_NAME %> </a>
+                    <li> <a class="listed" href=<%="/genre/" + genre.GENRE_NAME %> > <%= genre.GENRE_NAME %> </a>
                     </li>
                     <% } %>
             </ul>

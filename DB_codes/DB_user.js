@@ -24,7 +24,11 @@ async function updateUserEmailandBio(username, email, bio) {
 
 async function getFavouriteslistOfUser(username) {
     let sql = `
-        SELECT ANIME_ID, (SELECT ANIME_TITLE FROM ANIME WHERE L.ANIME_ID = ANIME.ANIME_ID) AS TITLE, FAVOURITED
+        SELECT 
+            ANIME_ID,  
+            (SELECT ANIME_TITLE FROM ANIME WHERE L.ANIME_ID = ANIME.ANIME_ID) AS TITLE,
+            (SELECT PICTURE_ID FROM ANIME WHERE L.ANIME_ID = ANIME.ANIME_ID) AS PICTURE_ID, 
+            FAVOURITED
         FROM WATCHED_LIST L
         WHERE L.USERNAME = :USERNAME AND FAVOURITED = 1
     `
@@ -33,7 +37,11 @@ async function getFavouriteslistOfUser(username) {
 
 async function getWatchlistOfUser(username) {
     let sql = `
-        SELECT ANIME_ID, (SELECT ANIME_TITLE FROM ANIME WHERE L.ANIME_ID = ANIME.ANIME_ID) AS TITLE, FAVOURITED
+        SELECT 
+            ANIME_ID, 
+            (SELECT ANIME_TITLE FROM ANIME WHERE L.ANIME_ID = ANIME.ANIME_ID) AS TITLE,
+            (SELECT PICTURE_ID FROM ANIME WHERE L.ANIME_ID = ANIME.ANIME_ID) AS PICTURE_ID,  
+            FAVOURITED
         FROM WATCHED_LIST L
         WHERE L.USERNAME = :USERNAME
     `

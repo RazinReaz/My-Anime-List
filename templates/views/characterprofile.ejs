@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Character Profile</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body>
+    <div class="main-content">
+        <%- include('../partials/header.ejs') %>
+            <img src=<%="/img/character_pic/" + character.ANIME_ID + "/" + character.PICTURE_ID + ".jpg" %>>
+            <h3 style="color: rgb(7, 7, 122);">
+                <%= character.FIRST_NAME%>
+                    <%=character.LAST_NAME %>
+            </h3>
+            <p style="color: rgb(117, 3, 112);">Age :<span style="font-weight: bolder;color: black;">
+                    <%= character.AGE %>
+                </span>
+            </p>
+            <p style="color: rgb(74, 6, 80);">Description :<span style="font-weight: bolder;color: black;">
+                    <%= character.DESCRIPTION %>
+                </span>
+            </p>
+            <P style="color: rgb(99, 19, 102);">Role :<span style="font-weight: bolder;color: black;">
+                    <%= character.ROLE %>
+                </span></P>
+            <p style="color: rgb(58, 2, 63);">Voice Actor:
+                <span style="font-weight: bolder;color: black;">
+                    <a class="listed" href=<%="/personnel/" + character.VOICE_ACTOR_ID %>>
+                        <%=character.VA_NAME %>
+                    </a>
+                </span>
+            </p>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

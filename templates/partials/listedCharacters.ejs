@@ -1,0 +1,10 @@
+<% for (let character of characters){ %>
+    <li>
+        <a class="listed-character" href=<%="/anime/" + character.ANIME_ID + "/characters/" + character.FIRST_NAME + "_"
+            + character.LAST_NAME%>>
+            <img width="40" src=<%="/img/character_pic/" + character.ANIME_ID + "/" + character.PICTURE_ID + ".jpg" %>>
+            <%= character.FIRST_NAME %>
+                <%= character.LAST_NAME %>
+        </a>
+    </li>
+    <% } %>

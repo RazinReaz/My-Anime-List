@@ -2,17 +2,35 @@
     <h1>
         <%= pageTitle %>
     </h1>
-    <a href="/">Home</a>
-    <a href="/animelist">Animelist</a>
-    <a href="/user/" + <%=username%> >Profile</a>
-    <span style="float: right;">
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
-        <a href="/logout">Logout</a>
-    </span>
-    <!-- !post korlam -->
-    <form class="search-bar" action="/searchresults" method="post">
-        <input class="search-bar" type="text" placeholder="Search for anything" name="search">
-        <button type="submit">Search</button>
-    </form>
+    <section id="nav">
+        <div class="shundor">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/animelist">Animelist</a>
+                    <ul>
+                        <li><a href="/searchtags">Tags</a></li>
+                        <li><a href="/genre">Genre</a></li>
+                        <li><a href="/studio">Studio</a></li>
+                        <li><a href="/writer">Writer</a></li>
+                    </ul>
+                </li>
+                <li><a href="/user/" + <%=username%> >Profile</a></li>
+                <span style="float: right;">
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </span>
+            </ul>
+        </div>
+    </section>
+
+    <section id="search">
+        <!-- !SEARCH -->
+        <form class="search-bar" action="/searchresults" method="post">
+            <input class="search-bar" type="text" placeholder="Search for anything" name="search">
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+
 </header>

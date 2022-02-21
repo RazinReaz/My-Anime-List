@@ -20,7 +20,7 @@ async function getAllStudios() {
 
 async function getAnimesByStudio(studio_name) {
     let sql = `
-        select ANIME_ID, ANIME_TITLE
+        select ANIME_ID, ANIME_TITLE, PICTURE_ID
         from ANIME
         where STUDIO_NAME = ':studio_name'
     `
@@ -30,7 +30,7 @@ async function getAnimesByStudio(studio_name) {
 
 async function getAnimesByStudio(studio_name) {
     let sql = `
-        select ANIME_ID, ANIME_TITLE
+        select ANIME_ID, ANIME_TITLE, PICTURE_ID
         from ANIME
         where STUDIO_NAME = :studio_name
     `

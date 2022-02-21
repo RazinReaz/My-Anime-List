@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Episodes</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="main-content">
+        <%- include('../partials/header.ejs') %>
+
+            <% for (let i=1; i<=numSeasons ; i++ ) { %>
+                <a name=<%="season" + i %>></a>
+                <p>
+                <div>
+                    <% for (let j=1; j<=numSeasons ; j++ ){ %>
+                        <a href=<%="#season" + j%>>Season-<%= j %> </a>:::
+                        <% } %>
+                </div>
+                <div>
+                    <% for (let episode of episodes){ %>
+                        <% if(episode.SEASON==i){ %>
+                            <p> Episode# <%= episode.EPISODE_NUMBER %> : <%= episode.EPISODE_TITLE %> <br>
+                                        Runtime : <%= episode.RUNTIME %> minutes
+                            </p>
+                            <% } %>
+                                <% } %>
+                </div>
+                <% } %>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

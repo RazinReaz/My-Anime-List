@@ -16,7 +16,9 @@
                 <% } else { %>
                     <ul>
                         <% for (let anime of animes){ %>
-                            <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.TITLE %>
+                            <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >
+                                    <img width="40" src=<%="/img/anime_pic/" +anime.PICTURE_ID + ".jpg" %>>
+                                    <%= anime.TITLE %>
                                 </a>
                                 <% if(anime.FAVOURITED==1) { %>
                                     <a class="favourited" href=<%="/user/" + username + "/favourites" %>> Favourited!

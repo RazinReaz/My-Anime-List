@@ -39,7 +39,6 @@ router.post('/', async (req, res) => {
 
         animes
     }
-    console.log(animes);
     res.render('animelist', data);
 })
 

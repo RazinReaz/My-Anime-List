@@ -7,20 +7,28 @@
     </title>
     <link rel="icon" href="/img/icons/mal-logo-head.png">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/test.css">
+    <link rel="stylesheet" href="/css/new.css">
 
 </head>
 
 <body>
     <div class="main-content-anime">
         <%- include('../partials/header.ejs') %>
-            <!-- {{!-- get the jpg image and anime title from sent data  --}} -->
-            <img src=<%="/img/anime_pic/" +anime.ANIME_ID + ".jpg" %> alt= <%= anime.ANIME_TITLE + "image" %> >
-                <h3 class="anime-title">
-                    <%= anime.ANIME_TITLE %>
-                </h3>
+            <img src=<%="/img/anime_pic/" +anime.PICTURE_ID + ".jpg" %>>
+            <h3 class="anime-title">
+                <%= anime.ANIME_TITLE %>
+            </h3>
+            <p>Rank #<%= anime.RANK %>
+                    Rating <%= anime.AVG_RATING %>
+                        Members #<%= usersWatchlisted %>
+                            Favourited by #<%= usersFavourited %>
+            </p>
 
-                <!-- !for adding to watchlist button -->
+
+
+            <!-- !for adding to watchlist button -->
+            <div>
+
                 <% if(isAuth) { %>
                     <form method="post" action=<%="/user/" + username + "/watchlist/add" %>>
                         <input type="hidden" name="username" value=<%=username %> >
@@ -32,30 +40,68 @@
                                 : 'Add to watchlist' %>
                         </button>
                     </form>
+
+                    <!-- if added to watchlist then you can rate? -->
+                    <form id="ratingForm" method="post" action=<%="/anime/" + anime.ANIME_ID + "/rating/post" %>>
+                        <input type="hidden" name="username" value=<%=username %> >
+                        <input type="hidden" name="anime_id" value=<%=anime.ANIME_ID %> >
+                        <select id="stars" name="star" form="ratingForm" class="anime-rating">
+                            <option value="5" required>(5) Masterpiece!</option>
+                            <option value="4" required>(4) Very Good</option>
+                            <option value="3" required>(3) Average</option>
+                            <option value="2" required>(2) Bad</option>
+                            <option value="1" required>(1) Horrible</option>
+                        </select>
+                        <button type="submit" class="btn"> Rate </button>
+                    </form>
+                    <p>
+                        <%= userRatedThisAnime ? "You rated " + anime.ANIME_TITLE + " with " +userRating.STAR + " stars"
+                            : "" %>
+                    </p>
                     <% } %>
+            </div>
 
 
-                        <a href=<%="/anime/" + anime.ANIME_ID + "/reviews/" %> ><button>Reviews</button></a>
+            <a href=<%="/anime/" + anime.ANIME_ID + "/reviews/" %> ><button>Reviews</button></a>
+            <p>Synopsis : <%= anime.SYNOPSIS %>
+            </p>
+            <p>Genre :
+                <% for (let genre of genres){ %>
+                    <!-- this might change depending on the search by genre -->
+                    <a class="listed" href=<%="/genre/" + genre.GENRE_NAME %> > <%=genre.GENRE_NAME %> </a>
+                    <% } %>
+            </p>
+            <p>Released : <%= anime.YEAR %>
+                    <%= anime.RELEASE_SEASON %>
+            </p>
 
-                        <p>Synopsis : <%= anime.SYNOPSIS %>
-                        </p>
-                        <p>Genre :
-                            <% for (let genre of genres){ %>
-                                <!-- this might change depending on the search by genre -->
-                                <a class="listed" href=<%="/genre/" + genre.GENRE_NAME %> > <%=genre.GENRE_NAME %> </a>
-                                <% } %>
-                        </p>
-                        <p>Released : <%= anime.YEAR %>
-                                <%= anime.RELEASE_SEASON %>
-                        </p>
-
-                        <% studioURL=encodeURIComponent(anime.STUDIO_NAME) %>
-                            <p>Studio : <a class="listed" href=<%="/studio/" + studioURL%>> <%= anime.STUDIO_NAME %>
+            <% studioURL=encodeURIComponent(anime.STUDIO_NAME) %>
+                <p>Studio : <a class="listed" href=<%="/studio/" + studioURL%>> <%= anime.STUDIO_NAME %>
+                    </a>
+                </p>
+                <p>Writer : <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%= writer.FIRST_NAME %>
+                            <%= writer.LAST_NAME %> </a> </p>
+                <div>
+                    <h3>Characters</h3>
+                    <ul>
+                        <% for (let character of characters){ %>
+                            <li>
+                                <a class="listed-character" href=<%="/anime/" + anime.ANIME_ID + "/characters/" +
+                                    character.FIRST_NAME + "_" + character.LAST_NAME%>>
+                                    <img width="40" src=<%="/img/character_pic/" + anime.ANIME_ID + "/" +
+                                        character.PICTURE_ID + ".jpg" %>>
+                                    <%= character.FIRST_NAME %>
+                                        <%= character.LAST_NAME %>
                                 </a>
-                            </p>
-                            <p>Writer : <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%=
-                                        writer.FIRST_NAME %>
-                                        <%= writer.LAST_NAME %> </a> </p>
+                                <a class="listed" href=<%="/personnel/" + character.VOICE_ACTOR_ID %>>
+                                    <%=character.VA_NAME %>
+                                </a>
+                            </li>
+                            <% } %>
+                    </ul>
+                </div>
+                <a href=<%="/anime/" + anime.ANIME_ID + "/episodes/" %> ><button>Episodes</button></a>
+
     </div>
     <%- include('../partials/footer.ejs') %>
 </body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Personnel</title>
+    <link rel="icon" href="/img/icons/mal-logo-head.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body>
+    <div class="main-content">
+        <%- include('../partials/header.ejs') %>
+            <h3 style="color: rgb(6, 6, 139); font-weight: 900;">
+                <%= personnel.FIRST_NAME %>
+                    <%= personnel.LAST_NAME %>
+            </h3>
+            <p style="color: rgb(10, 10, 150); font-weight: 600;">Birthday :<span
+                    style="font-weight: bolder; color: black;">
+                    <%= personnel.BIRTHDAY %>
+                </span>
+            </p>
+            <p style="color:rgb(33, 33, 245); font-weight: 600;">Website : <a href=<%="https://" + personnel.WEBSITE %>>
+                    <%= personnel.WEBSITE %>
+                </a></p>
+            <p style="color: rgb(87, 87, 163); font-weight: 600;">Address :<span
+                    style="font-weight: bolder;color: black;">
+                    <%= personnel.ADDRESS %>
+                </span>
+            </p>
+
+
+
+            <div>
+                <% if(writer){ %>
+                    <p style="color: rgb(37, 37, 87); font-weight: 900;"> Genre Specialization : <%=
+                            writer.GENRE_SPECIALIZATION %>
+                    </p>
+                    <p style="color: rgb(37, 37, 87); font-weight: 900;">Animes <%= writer.FIRST_NAME %>
+                            <%= writer.LAST_NAME %> wrote ::
+                    </p>
+                    <ul>
+                        <%- include('../partials/listedAnimes.ejs') %>
+                    </ul>
+
+                    <% } else if (voiceActor){ %>
+                        <p style="color: rgb(37, 37, 87); font-weight: 900;">Characters <%= voiceActor.FIRST_NAME %>
+                                <%= voiceActor.LAST_NAME %> gave voice to
+                        </p>
+                        <ul>
+                            <%- include('../partials/listedCharacters.ejs') %>
+                        </ul>
+                        <% } %>
+            </div>
+
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

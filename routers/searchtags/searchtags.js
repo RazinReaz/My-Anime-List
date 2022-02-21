@@ -9,7 +9,7 @@ function range(size, startAt = 0) {
 
 
 
-//Loads the search by tags page from all geres
+//Loads the search by tags page from all genres
 router.get('/', async (req, res) => {
     const genres = await DB_anime.getAllGenres()
     const years = range(33, 1990);
@@ -20,14 +20,13 @@ router.get('/', async (req, res) => {
         message: 'Search Animes By Tags',
 
         genres,
-        years,
+        years
     }
     res.render('searchtags', data);
 })
 
 
 router.post('/', async (req, res) => {
-    console.log(req.body)
     let { genres, years } = req.body;
 
     if (typeof years == "string") years = [years]

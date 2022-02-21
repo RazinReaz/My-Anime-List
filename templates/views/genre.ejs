@@ -12,10 +12,7 @@
         <%- include('../partials/header.ejs') %>
             <p>Showing results of <%= genre_name %> genre </p>
             <ul>
-                <% for (let anime of animes){ %>
-                    <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a>
-                    </li>
-                    <% } %>
+                <%- include('../partials/listedAnimes.ejs') %>
             </ul>
     </div>
     <%- include('../partials/footer.ejs') %>

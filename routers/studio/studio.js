@@ -8,7 +8,6 @@ const router = express.Router({ mergeParams: true })
 router.get('/', async (req, res) => {
     //database query
     const studios = await DB_studio.getAllStudios();
-    console.log(studios)
     //error checking
     const data = {
         pageTitle: 'Studios',

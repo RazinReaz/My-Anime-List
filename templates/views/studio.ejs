@@ -22,10 +22,7 @@
             <ul>
                 <p>Animes produced by <%= studio.STUDIO_NAME %>
                 </p>
-                <% for (let anime of animes){ %>
-                    <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %> </a>
-                    </li>
-                    <% } %>
+                <%- include('../partials/listedAnimes.ejs') %>
             </ul>
     </div>
     <%- include('../partials/footer.ejs') %>

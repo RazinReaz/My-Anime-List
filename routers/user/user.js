@@ -46,9 +46,8 @@ router.get('/:username/watchlist', async (req, res) => {
     if (!req.session.isAuth) return res.redirect('/login');
     if (username != loggedinAs) return res.redirect('/error');
 
-    //database query
     const watchlist = await DB_user.getWatchlistOfUser(username);
-    //error checking
+
     const data = {
         pageTitle: 'Watchlist',
         isAuth: req.session.isAuth,
@@ -56,7 +55,6 @@ router.get('/:username/watchlist', async (req, res) => {
 
         animes: watchlist
     }
-    //console.log(watchlist);
     res.render('watchlist', data)
 })
 

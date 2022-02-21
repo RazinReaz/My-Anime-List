@@ -12,7 +12,8 @@ async function getAnimeByID(anime_id) {
             RELEASE_SEASON, 
             STUDIO_NAME,
             WRITER, 
-            AVG_RATING  
+            AVG_RATING,
+            RANK
         FROM ANIME 
         WHERE ANIME_ID = :ANIME_ID
     `
@@ -21,7 +22,7 @@ async function getAnimeByID(anime_id) {
 
 async function getAnimeByTitle(title) {
     let sql = `
-        SELECT ANIME_ID, ANIME_TITLE FROM ANIME
+        SELECT ANIME_ID, ANIME_TITLE, PICTURE_ID FROM ANIME
         WHERE LOWER(ANIME_TITLE) = :TITLE
     `
     return (await database.execute(sql, [title], database.options)).rows
@@ -29,7 +30,7 @@ async function getAnimeByTitle(title) {
 
 async function getAnimesByREGEX(string) {
     let sql = `
-    SELECT ANIME_ID, ANIME_TITLE FROM ANIME WHERE LOWER(ANIME_TITLE) LIKE '${string[0]}'`
+    SELECT ANIME_ID, ANIME_TITLE, PICTURE_ID FROM ANIME WHERE LOWER(ANIME_TITLE) LIKE '${string[0]}'`
     for (let i = 1; i < string.length; i++) {
         sql += ` AND LOWER(ANIME_TITLE) LIKE '${string[i]}'`;
     }
@@ -54,7 +55,7 @@ async function getWriterByID(PERSONNEL_ID) {
 
 async function getAllAnimeTitleAndID() {
     let sql = `
-        SELECT ANIME_TITLE, ANIME_ID
+        SELECT ANIME_TITLE, ANIME_ID, PICTURE_ID
         FROM ANIME
     `
     return (await database.execute(sql, [], database.options)).rows
@@ -136,6 +137,47 @@ async function updateAnimeRating(anime_id) {
 }
 
 
+
+async function getCharactersOfAnime(anime_id) {
+    let sql = `
+        SELECT FIRST_NAME, LAST_NAME, PICTURE_ID, VOICE_ACTOR_ID, 
+        (SELECT V.FIRST_NAME||' '||V.LAST_NAME FROM VOICE_ACTOR V WHERE V.PERSONNEL_ID = C.VOICE_ACTOR_ID) AS VA_NAME
+        FROM CHARACTER C
+        WHERE ANIME_ID = :ANIME_ID
+    `
+    return (await database.execute(sql, [anime_id], database.options)).rows
+}
+
+async function getCharacterByName(anime_id, first_name, last_name) {
+    let sql = `
+        SELECT ANIME_ID, FIRST_NAME, LAST_NAME, ROLE, DESCRIPTION, PICTURE_ID, VOICE_ACTOR_ID, 
+        (SELECT V.FIRST_NAME||' '||V.LAST_NAME FROM VOICE_ACTOR V WHERE V.PERSONNEL_ID = C.VOICE_ACTOR_ID) AS VA_NAME
+        FROM CHARACTER C
+        WHERE ANIME_ID = :ANIME_ID AND FIRST_NAME = :FIRST AND LAST_NAME = :LAST
+    `
+    return (await database.execute(sql, [anime_id, first_name, last_name], database.options)).rows[0]
+}
+
+
+async function getNumberOfSeasons(anime_id) {
+    let sql = `
+        SELECT COUNT(DISTINCT SEASON) AS CNT
+        FROM EPISODE
+        WHERE ANIME_ID = :ID
+    `
+    return (await database.execute(sql, [anime_id], database.options)).rows[0].CNT
+}
+
+async function getEpisodesOfAnime(anime_id) {
+    let sql = `
+        SELECT *
+        FROM EPISODE 
+        WHERE ANIME_ID  = :ID
+        ORDER BY SEASON, EPISODE_NUMBER
+    `
+    return (await database.execute(sql, [anime_id], database.options)).rows
+}
+
 module.exports = {
     getAnimeByID,
     getAnimeByTitle,
@@ -147,6 +189,11 @@ module.exports = {
     getAnimesByGenreAndOrYear,
     getAnimesByYear,
     getAnimesTitleandIDByOneGenre,
+
+    getCharactersOfAnime,
+    getCharacterByName,
+    getNumberOfSeasons,
+    getEpisodesOfAnime,
 
     updateAnimeRating
 }

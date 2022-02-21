@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 
     const animes = await DB_search.getAnimesByREGEX(string);
     const characters = await DB_search.getCharactersByREGEX(string);
-    const voice_actors = await DB_search.getVoiceActorsByREGEX(string);
+    const voiceactors = await DB_search.getVoiceActorsByREGEX(string);
     const writers = await DB_search.getWritersByREGEX(string);
 
     const data = {
@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
 
         animes,
         characters,
-        voice_actors,
+        voiceactors,
         writers
     }
     res.render('searchresults', data);

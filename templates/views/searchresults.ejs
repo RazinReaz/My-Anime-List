@@ -13,34 +13,29 @@
         <%- include('../partials/header.ejs') %>
             <h3>Animes</h3>
             <ul>
-                <% for (let anime of animes){ %>
-                    <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %></a>
-                    </li>
-                    <% } %>
+                <%- include('../partials/listedAnimes.ejs') %>
             </ul>
             <h3>Characters</h3>
             <ul>
-                <% for (let character of characters){ %>
-                    <li> <a class="listed" href=<%="/anime/" + character.ANIME_ID + "/" + character.FIRST_NAME + "-" +
-                            character.LAST_NAME %> > <%= character.FIRST_NAME %>
-                                <%= character.LAST_NAME %></a>
-                    </li>
-                    <% } %>
+                <%- include('../partials/listedCharacters.ejs') %>
             </ul>
             <h3>Voice actors</h3>
             <ul>
                 <% for (let voice_actor of voice_actors){ %>
-                    <li> <a class="listed" href=<%="/personnel/" + voice_actor.PERSONNEL_ID%> > <%=
-                                voice_actor.FIRST_NAME %>
-                                <%= voice_actor.LAST_NAME %> </a>
+                    <li> <a class="listed" href=<%="/personnel/" + voiceactor.PERSONNEL_ID%> >
+                            <%=voiceactor.FIRST_NAME %>
+                                <%= voiceactor.LAST_NAME %>
+                        </a>
                     </li>
                     <% } %>
             </ul>
             <h3>Writers</h3>
             <ul>
                 <% for (let writer of writers){ %>
-                    <li> <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%= writer.FIRST_NAME %>
-                                <%= writer.LAST_NAME %> </a>
+                    <li> <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> >
+                            <%= writer.FIRST_NAME %>
+                                <%= writer.LAST_NAME %>
+                        </a>
                     </li>
                     <% } %>
             </ul>

@@ -3,7 +3,7 @@ const database = require('./database')
 
 async function getAnimesByREGEX(string) {
     let sql = `
-    SELECT ANIME_ID, ANIME_TITLE FROM ANIME WHERE LOWER(ANIME_TITLE) LIKE '${string[0]}'`
+    SELECT ANIME_ID, ANIME_TITLE, PICTURE_ID FROM ANIME WHERE LOWER(ANIME_TITLE) LIKE '${string[0]}'`
     for (let i = 1; i < string.length; i++) {
         sql += ` AND LOWER(ANIME_TITLE) LIKE '${string[i]}'`;
     }

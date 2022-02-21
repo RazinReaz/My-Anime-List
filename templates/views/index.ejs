@@ -14,6 +14,32 @@
             <p>
                 <%= message %>
             </p>
+
+            <div style="float: left;">
+                <h3>Newly Released Anime </h3>
+                <% for (let anime of newlyReleased){ %>
+                    <li>
+                        <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >
+                            <img height="40" src=<%="/img/anime_pic/" +anime.PICTURE_ID + ".jpg" %>>
+                            <%= anime.ANIME_TITLE %>
+                        </a>
+                    </li>
+                    <% } %>
+            </div>
+            <div style="float: right;">
+                <h3>Top Animes</h3>
+                <% for (let anime of topAnimes){ %>
+                    <li>
+                        <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >
+                            <img height="40" src=<%="/img/anime_pic/" +anime.PICTURE_ID + ".jpg" %>>
+                            <%= anime.ANIME_TITLE %>
+                        </a>
+                    </li>
+                    <% } %>
+            </div>
+            <div>
+
+            </div>
     </div>
     <%- include('../partials/footer.ejs') %>
 </body>

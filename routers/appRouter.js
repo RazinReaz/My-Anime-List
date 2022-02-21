@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true });
+const DB_homepage = require('../DB_codes/DB_homepage');
 
 
 
@@ -14,19 +15,29 @@ const searchTagsRouter = require('./searchtags/searchtags')
 const searchResultsRouter = require('./searchresults/searchresults.js')
 const genreRouter = require('./genre/genre')
 const studioRouter = require('./studio/studio')
+const personnelRouter = require('./personnel/personnel')
 
 const userRouter = require('./user/user')
 
 
 
 //!HOME PAGE
-router.get('/', (req, res) => {
-    res.render('index', {
+router.get('/', async (req, res) => {
+    //popular
+    const newlyReleased = await DB_homepage.getNewlyReleasedAnime();
+    const topAnimes = await DB_homepage.getTopAnimes();
+    console.log(topAnimes)
+    //recommendation
+    const data = {
         pageTitle: 'MyAnimeList',
         isAuth: req.session.isAuth,
         username: req.session.userid,
-        message: 'This is the Home Page'
-    })
+        message: 'This is the Home Page',
+
+        newlyReleased,
+        topAnimes
+    }
+    res.render('index', data)
 })
 
 
@@ -43,6 +54,7 @@ router.use('/searchresults', searchResultsRouter)
 router.use('/genre', genreRouter)
 router.use('/studio', studioRouter)
 router.use('/user', userRouter)
+router.use('/personnel', personnelRouter)
 
 
 

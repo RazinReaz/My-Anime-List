@@ -15,10 +15,7 @@
                 <p>No result found</p>
                 <% } else { %>
                     <ul>
-                        <% for (let anime of animes){ %>
-                            <li> <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> > <%= anime.ANIME_TITLE %></a>
-                            </li>
-                            <% } %>
+                        <%- include('../partials/listedAnimes.ejs') %>
                     </ul>
                     <% } %>
     </div>

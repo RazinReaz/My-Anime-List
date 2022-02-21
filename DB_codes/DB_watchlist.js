@@ -1,6 +1,23 @@
 const oracledb = require('oracledb');
 const database = require('./database')
 
+async function getCountWatchlisted(anime_id) {
+    let sql = `
+        SELECT COUNT(*) AS CNT
+        FROM WATCHED_LIST
+        WHERE ANIME_ID = :ANIME_ID
+    `
+    return (await database.execute(sql, [anime_id], database.options)).rows[0].CNT
+}
+
+async function getCountFavourited(anime_id) {
+    let sql = `
+        SELECT COUNT(*) AS CNT
+        FROM WATCHED_LIST
+        WHERE ANIME_ID = :ANIME_ID AND FAVOURITED = 1
+    `
+    return (await database.execute(sql, [anime_id], database.options)).rows[0].CNT
+}
 
 async function getFavouriteslistOfUser(username) {
     let sql = `
@@ -13,7 +30,7 @@ async function getFavouriteslistOfUser(username) {
 
 async function getWatchlistOfUser(username) {
     let sql = `
-        SELECT ANIME_ID, (SELECT ANIME_TITLE FROM ANIME WHERE L.ANIME_ID = ANIME.ANIME_ID) AS TITLE, FAVOURITED
+        SELECT ANIME_ID, (SELECT ANIME_TITLE, PICTURE_ID FROM ANIME WHERE L.ANIME_ID = ANIME.ANIME_ID) AS TITLE, FAVOURITED
         FROM WATCHED_LIST L
         WHERE L.USERNAME = :USERNAME
     `
@@ -57,6 +74,8 @@ async function unfavourite(username, anime_id) {
 }
 
 module.exports = {
+    getCountWatchlisted,
+    getCountFavourited,
     getFavouriteslistOfUser,
     getWatchlistOfUser,
     getWatchlistRowOfUserAndAnime,

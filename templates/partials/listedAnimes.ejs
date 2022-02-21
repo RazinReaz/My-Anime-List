@@ -1,0 +1,8 @@
+<% for (let anime of animes){ %>
+    <li>
+        <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >
+            <img width="40" src=<%="/img/anime_pic/" +anime.PICTURE_ID + ".jpg" %>>
+            <%= anime.ANIME_TITLE %>
+        </a>
+    </li>
+    <% } %>
