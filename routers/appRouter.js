@@ -23,11 +23,15 @@ const userRouter = require('./user/user')
 
 //!HOME PAGE
 router.get('/', async (req, res) => {
-    //popular
+    const username = req.session.userid;
     const newlyReleased = await DB_homepage.getNewlyReleasedAnime();
     const topAnimes = await DB_homepage.getTopAnimes();
-    console.log(topAnimes)
-    //recommendation
+
+    let recommendation = []
+    if (req.session.isAuth)
+        recommendation = await DB_homepage.getUserRecommendation(username)
+    console.log(recommendation)
+
     const data = {
         pageTitle: 'MyAnimeList',
         isAuth: req.session.isAuth,
@@ -35,7 +39,8 @@ router.get('/', async (req, res) => {
         message: 'This is the Home Page',
 
         newlyReleased,
-        topAnimes
+        topAnimes,
+        recommendation
     }
     res.render('index', data)
 })

@@ -11,35 +11,45 @@
 <body>
     <div class="main-content">
         <%- include('../partials/header.ejs') %>
-            <p>
-                <%= message %>
-            </p>
+            <section id="homepage-top-animes" style="margin-bottom: 15%;">
+                <div style="float: left; width : 50%">
+                    <h3>Newly Released Anime </h3>
+                    <% for (let anime of newlyReleased){ %>
+                        <li>
+                            <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >
+                                <img height="40" src=<%="/img/anime_pic/" +anime.PICTURE_ID + ".jpg" %>>
+                                <%= anime.ANIME_TITLE %>
+                            </a>
+                        </li>
+                        <% } %>
+                </div>
+                <div style="float: right; width : 50%">
+                    <h3>Top Animes</h3>
+                    <% for (let anime of topAnimes){ %>
+                        <li>
+                            <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >
+                                <img height="40" src=<%="/img/anime_pic/" +anime.PICTURE_ID + ".jpg" %>>
+                                <%= anime.ANIME_TITLE %>
+                            </a>
+                        </li>
+                        <% } %>
+                </div>
 
-            <div style="float: left;">
-                <h3>Newly Released Anime </h3>
-                <% for (let anime of newlyReleased){ %>
+            </section>
+
+            <section id="homepage-recommended-animes" style="margin-top: 50%;">
+
+                <h3>Recommended Animes for you : </h3>
+                <% for (let anime of recommendation){ %>
                     <li>
                         <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >
                             <img height="40" src=<%="/img/anime_pic/" +anime.PICTURE_ID + ".jpg" %>>
-                            <%= anime.ANIME_TITLE %>
+                            <%= anime.TITLE %>
                         </a>
                     </li>
                     <% } %>
-            </div>
-            <div style="float: right;">
-                <h3>Top Animes</h3>
-                <% for (let anime of topAnimes){ %>
-                    <li>
-                        <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >
-                            <img height="40" src=<%="/img/anime_pic/" +anime.PICTURE_ID + ".jpg" %>>
-                            <%= anime.ANIME_TITLE %>
-                        </a>
-                    </li>
-                    <% } %>
-            </div>
-            <div>
 
-            </div>
+            </section>
     </div>
     <%- include('../partials/footer.ejs') %>
 </body>

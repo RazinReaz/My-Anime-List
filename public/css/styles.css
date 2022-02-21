@@ -125,39 +125,3 @@ header ul li:hover ul li{
 #nav {
     margin-bottom: 7ch;
 }
-
-/* header ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-header ul li{
-    width: 100px;
-    height: 30px;
-    background-color:#ffffff;
-    opacity: 0.98;
-    line-height: 30px;
-}
-header ul li a{
-  text-decoration: none;
-  text-align: center;
-  color: #888888;
-  display: block;
-}
-header ul li a:hover{
-  background-color: #666666;
-  color:rgb(112, 210, 255);
-}
-
-header ul li ul li{
-  display: none;
-}
-
-header ul li:hover ul li{
-  display: block;
-  background-color:rgb(255, 255, 255);
-}
-
-* {
-  box-sizing: border-box;
-} */
