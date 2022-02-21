@@ -9,7 +9,7 @@ async function startup() {
         user: process.env.DB_USER || "abc",
         password: process.env.DB_PASS || "abc",
         connectstring: process.env.DB_CONNECTSTRING || "localhost/orcl",
-        poolMin: 4, //!janina
+        poolMin: 4,
         poolMax: 10,
         poolIncrement: 1
     });

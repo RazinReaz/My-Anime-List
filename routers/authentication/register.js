@@ -11,6 +11,9 @@ router.get('/', async (req, res) => {
     res.render('register', { message: 'Enter Credentials' })
 })
 
+
+
+
 //user makes post request to register him into db
 router.post('/', async (req, res) => {
     const { username, email, password } = req.body;

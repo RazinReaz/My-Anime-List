@@ -12,7 +12,7 @@ async function getAnimesByREGEX(string) {
 
 async function getCharactersByREGEX(string) {
     let sql = `
-        SELECT ANIME_ID, FIRST_NAME, LAST_NAME FROM CHARACTER
+        SELECT ANIME_ID, FIRST_NAME, LAST_NAME, PICTURE_ID FROM CHARACTER
         WHERE (LOWER(FIRST_NAME) LIKE '${string[0]}' OR LOWER(LAST_NAME) LIKE '${string[0]}')
     `
 
