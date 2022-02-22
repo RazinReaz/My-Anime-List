@@ -15,7 +15,7 @@
             <div>
 
                 <% if(isAuth) { %>
-                    <button class="open-review" onclick="openReview()" style="background-color: rgb(126, 126, 207);"> Write/Edit review</button>
+                    <button class="open-review" onclick="openReview()" style="background-color: rgb(78, 78, 211);"> Write/Edit review</button>
 
                     <br>
                     <br>
@@ -24,7 +24,7 @@
                         <form action=<%="/anime/" + anime_id + "/reviews/delete" %> method="post">
                             <input type="hidden" name="username" value=<%=username %>>
                             <input type="hidden" name="anime_id" value=<%=anime_id %>>
-                            <button type="submit" onclick="return removeReview()" style="background-color: rgb(233, 111, 115);">Remove review</button>
+                            <button type="submit" onclick="return removeReview()" style="background-color: rgb(194, 79, 83);">Remove review</button>
                         </form>
                         <% } %>
                             <br>

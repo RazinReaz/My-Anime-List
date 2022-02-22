@@ -7,7 +7,7 @@ router.get('/:personnel_id', async (req, res) => {
     const personnel_id = req.params.personnel_id;
     const personnel = await DB_others.getPersonnel(personnel_id);
     const writer = await DB_others.getWriter(personnel_id);
-    const voiceActor = DB_others.getVoiceActor(personnel_id);
+    const voiceActor =await DB_others.getVoiceActor(personnel_id);
 
     let animes = [];
     let characters = [];
@@ -22,7 +22,8 @@ router.get('/:personnel_id', async (req, res) => {
     if (!personnel) res.redirect('/error');
 
     const data = {
-        pageTitle: 'MyAnimeList',
+        pageTitle: 'Personnel',
+
         isAuth: req.session.isAuth,
         username: req.session.userid,
 

@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     const genres = await DB_anime.getAllGenres();
     //error checking
     const data = {
-        pageTitle: 'MyAnimeList',
+        pageTitle: 'Genres',
         isAuth: req.session.isAuth,
         username: req.session.userid,
 
@@ -24,7 +24,7 @@ router.get('/:genre_name', async (req, res) => {
     const animes = await DB_anime.getAnimesTitleandIDByOneGenre(genre_name);
     //error checking
     const data = {
-        pageTitle: 'MyAnimeList',
+        pageTitle: 'Genre',
         isAuth: req.session.isAuth,
         username: req.session.userid,
 

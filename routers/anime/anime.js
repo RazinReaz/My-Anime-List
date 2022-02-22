@@ -172,7 +172,7 @@ router.get('/:anime_id/episodes', async (req, res) => {
     const episodes = await DB_anime.getEpisodesOfAnime(anime_id);
     //error checking
     const data = {
-        pageTitle: 'Character',
+        pageTitle: 'Episodes',
         isAuth: req.session.isAuth,
         username: req.session.userid,
 
