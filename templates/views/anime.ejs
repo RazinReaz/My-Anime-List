@@ -19,18 +19,18 @@
                     <img src=<%="/img/anime_pic/" +anime.PICTURE_ID + ".jpg" %>>
                 </div>
                 <div style="float: right; width : 50%">
-                    <h3>Rank #</h3>
+                    <h3 style="color: rgb(52, 52, 110);">Rank #</h3>
                     <%= anime.RANK %>
-                        <h3>Rating </h3>
+                        <h3 style="color: rgb(18, 18, 75);">Rating </h3>
                         <%= anime.AVG_RATING %>
-                            <h3>Members #</h3>
+                            <h3 style="color: rgb(57, 18, 66);">Members #</h3>
                             <%= usersWatchlisted %>
-                                <h3>Favourited by #</h3>
+                                <h3 style="color: rgb(85, 22, 69);">Favourited by #</h3>
                                 <%= usersFavourited %>
                 </div>
             </section>
             <div class="anime-title" style="margin-top: 60%;">
-                <h2>
+                <h2 style="font-size: x-large; color: rgb(11, 11, 112);">
                     <%= anime.ANIME_TITLE %>
                 </h2>
             </div>
@@ -52,6 +52,8 @@
                                 : 'Add to watchlist' %>
                         </button>
                     </form>
+                    <br>
+                    <br>
 
                     <!-- if added to watchlist then you can rate? -->
                     <form id="ratingForm" method="post" action=<%="/anime/" + anime.ANIME_ID + "/rating/post" %>>
@@ -64,9 +66,9 @@
                             <option value="2" required>(2) Bad</option>
                             <option value="1" required>(1) Horrible</option>
                         </select>
-                        <button type="submit" class="btn"> Rate </button>
+                        <button type="submit" class="btn" style="background-color: rgb(85, 22, 69);"> Rate </button>
                     </form>
-                    <p>
+                    <p style="font-weight: bolder; color:rgb(18, 18, 75);">
                         <%= userRatedThisAnime ? "You rated " + anime.ANIME_TITLE + " with " +userRating.STAR + " stars"
                             : "" %>
                     </p>
@@ -74,27 +76,28 @@
             </div>
 
 
-            <a href=<%="/anime/" + anime.ANIME_ID + "/reviews/" %> ><button>Reviews</button></a>
-            <p>Synopsis : <%= anime.SYNOPSIS %>
+            <!--<a href=<%="/anime/" + anime.ANIME_ID + "/reviews/" %> ><button>Reviews</button></a>-->
+            <p><span style="color:rgb(37, 37, 87);font-weight: 700;">Synopsis </span> : <%= anime.SYNOPSIS %>
             </p>
-            <p>Genre :
+            <p><span style="color: rgb(37, 37, 87); font-weight: 700;">Genre </span> :
                 <% for (let genre of genres){ %>
                     <!-- this might change depending on the search by genre -->
                     <a class="listed" href=<%="/genre/" + genre.GENRE_NAME %> > <%=genre.GENRE_NAME %> </a>
                     <% } %>
             </p>
-            <p>Released : <%= anime.YEAR %>
+            <p><span style="color: rgb(37, 37, 87); font-weight: 700;">Released </span> : <%= anime.YEAR %>
                     <%= anime.RELEASE_SEASON %>
             </p>
 
             <% studioURL=encodeURIComponent(anime.STUDIO_NAME) %>
-                <p>Studio : <a class="listed" href=<%="/studio/" + studioURL%>> <%= anime.STUDIO_NAME %>
+                <p><span style="color: rgb(37, 37, 87); font-weight: 700;">Studio </span>: <a class="listed" href=<%="/studio/" + studioURL%>> <%= anime.STUDIO_NAME %>
                     </a>
                 </p>
-                <p>Writer : <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%= writer.FIRST_NAME %>
+                <p><span style="color: rgb(37, 37, 87); font-weight: 700;">Writer</span> : <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> > <%= writer.FIRST_NAME %>
                             <%= writer.LAST_NAME %> </a> </p>
+                <a href=<%="/anime/" + anime.ANIME_ID + "/episodes/" %> ><button style="background-color: rgb(58, 58, 122);">Episodes</button></a>
                 <div>
-                    <h3>Characters</h3>
+                    <h3 style="color: rgb(83, 18, 109);">Characters & Voice Actors</h3>
                     <ul>
                         <% for (let character of characters){ %>
                             <li>
@@ -112,7 +115,10 @@
                             <% } %>
                     </ul>
                 </div>
-                <a href=<%="/anime/" + anime.ANIME_ID + "/episodes/" %> ><button>Episodes</button></a>
+                <br>
+                <br>
+                <a href=<%="/anime/" + anime.ANIME_ID + "/reviews/" %> ><button style="background-color:rgb(88, 88, 167) ;">Reviews</button></a>
+                <!--<a href=<%="/anime/" + anime.ANIME_ID + "/episodes/" %> ><button>Episodes</button></a>-->
 
     </div>
     <%- include('../partials/footer.ejs') %>
