@@ -30,7 +30,6 @@ router.get('/', async (req, res) => {
     let recommendation = []
     if (req.session.isAuth)
         recommendation = await DB_homepage.getUserRecommendation(username)
-    console.log(recommendation)
     const data = {
         pageTitle: 'MyAnimeList',
         isAuth: req.session.isAuth,

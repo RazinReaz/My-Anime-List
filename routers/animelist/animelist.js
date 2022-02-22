@@ -1,5 +1,6 @@
 const express = require('express')
-const DB_anime = require('../../DB_codes/DB_anime') //!env.ROOT?
+const DB_anime = require('../../DB_codes/DB_anime')
+const DB_list = require('../../DB_codes/DB_homepage')
 const router = express.Router({ mergeParams: true })
 
 
@@ -15,6 +16,42 @@ router.get('/', async (req, res) => {
     res.render('animelist', data)
 })
 
+router.get('/new', async (req, res) => {
+    const newAnimes = await DB_list.getAllNewlyReleasedAnime();
+    const data = {
+        pageTitle: 'List of Newly released Animes',
+        isAuth: req.session.isAuth,
+        username: req.session.userid,
+
+        animes: newAnimes
+    }
+    res.render('animelist', data)
+})
+
+router.get('/top', async (req, res) => {
+    const topAnimes = await DB_list.getAllTopAnimes();
+    const data = {
+        pageTitle: 'List of Top Animes',
+        isAuth: req.session.isAuth,
+        username: req.session.userid,
+
+        animes: topAnimes
+    }
+    res.render('animelist', data)
+})
+
+router.get('/recommendation', async (req, res) => {
+    const recommendations = await DB_list.getAllUserRecommendation(req.session.userid);
+    const data = {
+        pageTitle: 'Recommendations',
+        isAuth: req.session.isAuth,
+        username: req.session.userid,
+
+        animes: recommendations
+    }
+    res.render('animelist', data)
+})
+
 
 //searched for a specific anime
 
@@ -26,7 +63,6 @@ router.post('/', async (req, res) => {
     for (let i = 0; i < string.length; i++) {
         string[i] = '%' + string[i] + '%';
     }
-    console.log(string);
 
     if (string.length == 0) return res.redirect('/')
 
