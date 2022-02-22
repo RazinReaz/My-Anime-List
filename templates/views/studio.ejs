@@ -11,17 +11,19 @@
 <body>
     <div class="main-content">
         <%- include('../partials/header.ejs') %>
-            <h3>
+            <h3 style="color:rgb(26, 20, 114);">
                 <%= studio.STUDIO_NAME %>
             </h3>
-            <p>Founded : <%= studio.FOUNDING_DATE %>
+            <p><span style="color: rgb(26, 20, 114);font-weight: 800;">Founded</span> : <%= studio.FOUNDING_DATE %>
             </p>
-            <p>Website : <a href=<%="https://" + studio.WEBSITE %>> <%= studio.WEBSITE %></a></p>
-            <p>Headquarters : <%= studio.HEADQUARTER %>
+            <p><span style="color: rgb(26, 20, 114);font-weight: 800;">Website</span> : <a href=<%="https://" + studio.WEBSITE %>> <%= studio.WEBSITE %></a></p>
+            <p><span style="color: rgb(26, 20, 114);font-weight: 800;">Headquarters</span> : <%= studio.HEADQUARTER %>
+            </p>
+            <p style="color: rgb(26, 20, 114);font-weight: 800;">Animes produced by <%= studio.STUDIO_NAME %>
             </p>
             <ul>
-                <p>Animes produced by <%= studio.STUDIO_NAME %>
-                </p>
+                <!--<p>Animes produced by <%= studio.STUDIO_NAME %>
+                </p>-->
                 <%- include('../partials/listedAnimes.ejs') %>
             </ul>
     </div>

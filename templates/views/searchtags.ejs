@@ -21,8 +21,8 @@
             </div>
 
             <form action="/searchtags" method="post">
-                <input type="submit" value="Search">
-                <h3>Select tags you want to search</h3>
+                <input type="submit" value="Search" style="background-color:rgb(139, 132, 230);">
+                <h3 style="color:rgb(26, 20, 114);">Select tags you want to search</h3>
                 <div>
                     <% for (let genre of genres){ %>
                         <input class="tags-genre" type="checkbox" id="tag[]" name="genres" value=<%=genre.GENRE_NAME %>>
@@ -31,7 +31,7 @@
                         </label><br>
                         <% } %>
                 </div>
-                <h3>Select year you want to search</h3>
+                <h3 style="color:rgb(26, 20, 114);">Select year you want to search</h3>
                 <div>
                     <% for (let year of years){ %>
                         <input class="tags-year" type="checkbox" id="yr" name="years" value=<%=year %> >

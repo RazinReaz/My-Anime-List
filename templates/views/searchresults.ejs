@@ -11,15 +11,15 @@
 <body>
     <div class="main-content">
         <%- include('../partials/header.ejs') %>
-            <h3>Animes</h3>
+            <h3 style="color:rgb(26, 20, 114);">Animes</h3>
             <ul>
                 <%- include('../partials/listedAnimes.ejs') %>
             </ul>
-            <h3>Characters</h3>
+            <h3 style="color:rgb(26, 20, 114);">Characters</h3>
             <ul>
                 <%- include('../partials/listedCharacters.ejs') %>
             </ul>
-            <h3>Voice actors</h3>
+            <h3 style="color:rgb(26, 20, 114);">Voice actors</h3>
             <ul>
                 <% for (let voice_actor of voice_actors){ %>
                     <li> <a class="listed" href=<%="/personnel/" + voice_actor.PERSONNEL_ID%> >
@@ -29,7 +29,7 @@
                     </li>
                     <% } %>
             </ul>
-            <h3>Writers</h3>
+            <h3 style="color:rgb(26, 20, 114);">Writers</h3>
             <ul>
                 <% for (let writer of writers){ %>
                     <li> <a class="listed" href=<%="/personnel/" + writer.PERSONNEL_ID%> >
