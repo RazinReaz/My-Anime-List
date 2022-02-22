@@ -15,19 +15,23 @@
 <body>
     <%- include('../partials/header.ejs') %>
         <div class="users profile">
-            <h3>
+            <h3 style="font-size: larger; font-weight: 900; color: rgb(7, 7, 138);">
                 <%= username %>
             </h3>
-            <p>Email : <%= userInfo.EMAIL %>
+            <br>
+            <br>
+            <p style="color: rgb(37, 37, 87);font-size: larger; font-weight: 800;">Email :<span style="color: black;"> <%= userInfo.EMAIL %></span>
             </p>
-            <p> Bio: <%= userInfo.BIO %>
+            <br>
+            <p style="color: rgb(28, 28, 124);font-size: larger; font-weight: 700;"> Bio: <span style="color: black;"><%= userInfo.BIO %></span>
             </p>
-            <p>Join Date : <%= userInfo.JOIN_DATE %>
+            <br>
+            <p style="color: rgb(4, 4, 61);font-size: larger; font-weight: 600;">Join Date : <span style="color: black;"><%= userInfo.JOIN_DATE %></span>
             </p>
             <br>
 
             <a href=<%="/user/" + userInfo.USERNAME + "/watchlist/" %> >
-                <button>
+                <button style="background: rgb(91, 91, 141);">
                     Your Watchlist
                 </button>
             </a>
@@ -49,7 +53,7 @@
                     </textarea>
                     <br><br>
 
-                    <button type="submit" class="btn"> Update</button>
+                    <button type="submit" class="btn" style="background-color:rgb(53, 53, 104);"> Update</button>
                 </form>
             </div>
             <script>

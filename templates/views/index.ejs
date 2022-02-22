@@ -13,7 +13,7 @@
         <%- include('../partials/header.ejs') %>
             <section id="homepage-top-animes" style="margin-bottom: 15%;">
                 <div style="float: left; width : 50%">
-                    <h3>Newly Released Anime </h3>
+                    <h3 style="color: rgb(121, 8, 87);">Newly Released Anime </h3>
                     <% for (let anime of newlyReleased){ %>
                         <li>
                             <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >
@@ -24,7 +24,7 @@
                         <% } %>
                 </div>
                 <div style="float: right; width : 50%">
-                    <h3>Top Animes</h3>
+                    <h3 style="color: rgb(25, 25, 112);">Top Animes</h3>
                     <% for (let anime of topAnimes){ %>
                         <li>
                             <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >
@@ -39,7 +39,7 @@
 
             <section id="homepage-recommended-animes" style="margin-top: 50%;">
                 <% if(isAuth){ %>
-                    <h3>Recommended Animes for you : </h3>
+                    <h3 style="color: rgb(119, 36, 175);">Recommended Animes for you : </h3>
                     <% for (let anime of recommendation){ %>
                         <li>
                             <a class="listed" href=<%="/anime/" + anime.ANIME_ID %> >

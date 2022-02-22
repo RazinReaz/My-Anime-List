@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     const genres = await DB_anime.getAllGenres()
     const years = range(33, 1990);
     const data = {
-        pageTitle: 'MyAnimeList',
+        pageTitle: 'Search by Tags',
         isAuth: req.session.isAuth,
         username: req.session.userid,
         message: 'Search Animes By Tags',
@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
     genres = await DB_anime.getAllGenres()
     years = range(33, 1990);
     const data = {
-        pageTitle: 'MyAnimeList',
+        pageTitle: 'Search by Tags',
         isAuth: req.session.isAuth,
         username: req.session.userid,
         message: 'Search Animes By Tags',
