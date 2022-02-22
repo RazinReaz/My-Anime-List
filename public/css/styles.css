@@ -8,23 +8,18 @@ body {
     display: flex;      /* flexbox to stick footer to the bottom */
     flex-direction: column;
     min-height: 100vh;      /* 100% of the scree*/
-    
-    
 }
 
-header{
-    background-color: rgb(240, 234, 247);
-}
 
 footer {
     color : #888888;
     border-top: 1px solid #eeeeee;
     margin-top: 16px;
     padding: 8px 0;
-    background-color: rgb(240, 234, 247);
 }
 
 header {
+    border-bottom: 1px solid #eeeeee;
     margin-top: 16px;
     margin-bottom: 48px;
 }
