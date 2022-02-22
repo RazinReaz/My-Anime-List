@@ -62,7 +62,11 @@ a.listed {
     text-decoration: none;
     list-style: none;
 }
-
+a.home {
+    padding: 6px;
+    text-decoration: none;
+    list-style: none;
+}
 a.favourited {
     color: #e60ad0;
     padding: 6px;
