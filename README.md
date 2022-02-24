@@ -1,6 +1,6 @@
 # MY ANIME LIST
 CSE 216 Term project by Razin and Labiba
-(student id : 1805074 and 1805082)
+(student id : 1805074 and 1805081)
 This project uses node.js, express.js and oracle as the database
 
 ## How to run the project
